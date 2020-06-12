@@ -1,0 +1,24 @@
+{
+  "name": "amd-hackathon",
+  "version": "1.0.0",
+  "description": "Website for AMD Hackathon 2020",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-florek/amd-hackathon.git"
+  },
+  "keywords": [],
+  "author": "Kelsey Florek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k-florek/amd-hackathon/issues"
+  },
+  "homepage": "https://github.com/k-florek/amd-hackathon#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}
