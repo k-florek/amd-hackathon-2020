@@ -48,6 +48,8 @@
  const getScores = require('./routes/scores.route');
  app.use('/getteamscores',getScores)
 
+ //SubmitQuestion
+
 
 /**
  * Server Activation

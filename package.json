@@ -4,7 +4,7 @@
   "description": "Website for AMD Hackathon 2020",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js"
+    "dev": "START_TIME=\"06/02/2020 08:00\" nodemon ./index.js"
   },
   "repository": {
     "type": "git",
