@@ -8,7 +8,7 @@ exports.signup = function (req,res) {
       console.log(err);
     }
     if(exists){
-      res.send({sucess:false,message:"Team name already exists",data:req.body.teamName});
+      res.send({success:false,message:`The team name ${req.body.teamName} is already used.`});
     }
     else{
       let hashData = "amd-2020-" + req.body.teamName;
@@ -38,7 +38,7 @@ exports.signup = function (req,res) {
           console.log(err);
         }
       });
-      res.send({sucess:true,message:"Sign up successful",data:req.body.teamName});
+      res.send({success:true,message:`Welcome team ${req.body.teamName}!`});
     }
   });
 }

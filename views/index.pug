@@ -14,6 +14,7 @@ head
   link(href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css')
   // Core theme CSS (includes Bootstrap)
   link(href='css/styles.css' rel='stylesheet')
+
 // Navigation
 nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
   .container
@@ -149,20 +150,25 @@ footer.footer.text-center
                   i.fas.fa-star
                 .divider-custom-line
               // Signup Form
-              form.form-horizontal(method='post' action='/signup')
+              form.form-horizontal(id='signupForm' method='post' action='/signup')
                 .form-label-group
                   label(for='teamName')
                     h4 Team Name
                   input.form-control(name='teamName' type='text' placeholder='Team Name' required='' autofocus='')
+                br
                 .form-label-group
                   label(for='contactEmail') 
-                    h4 Team Contact Email
+                    h4 Contact Email
                   input.form-control(name='contactEmail' type='email' placeholder='Email address' required='')
+                br
                 .form-label-group
                   label(for='teamMembers') 
                     h4 Team Members
                   textarea.form-control(name='teamMembers' type='text' placeholder='Jane Smith\nJohn Smith' required='')
-                button.btn.btn-primary(name='submit' type='submit') Submit  
+                br
+                button.btn.btn-primary(name='submit' type='submit') Submit
+              br
+              #signupMsg.h5
 
 // Portfolio Modals
 // Portfolio Modal 1
@@ -330,7 +336,29 @@ footer.footer.text-center
 // Bootstrap core JS
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js')
-// Third party plugin JS
-script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js')
 // Core theme JS
 script(src='js/scripts.js')
+// Third party plugin JS
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js')
+//signup submission script
+script.
+  $("#signupForm").on('submit',function(event) {
+    event.preventDefault(); // to prevent default page reloading
+    var dataString = $(this).serialize(); // to get the form data
+    var url = $(this).attr('action');
+    console.log(dataString);
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: dataString,
+      success: function(data){
+        if(data.success){
+          $('#signupForm')[0].reset(); // to reset form data
+          $('#signupMsg').text(data.message);
+        }
+        else{
+          $('#signupMsg').text(data.message);
+        }
+      }
+    })
+  });

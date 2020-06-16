@@ -41,6 +41,14 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.signup-message {
+  display: none;
+}
+
+.signup-message-active{
+  display: block;
+}
+
 *,
 *::before,
 *::after {
