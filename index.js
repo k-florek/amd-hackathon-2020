@@ -13,13 +13,13 @@
  */
  const app = express();
  const port = process.env.PORT || "8000";
- const mongo_uri = "mongodb://admin:admin@localhost:27017/?authSource=admin"
+ const mongo_uri = "mongodb://admin:admin@localhost:27017/amd-hackathon?authSource=admin"
 
 /**
 * Connect to database
 */
 
- mongoose.connect(mongo_uri, {useNewUrlParser: true, useUnifiedTopology: true });
+ mongoose.connect(mongo_uri, {useNewUrlParser: true, useUnifiedTopology: true , useCreateIndex: true});
  mongoose.Promise = global.Promise;
  let db = mongoose.connection;
  db.on('error',console.error.bind(console,'Mongodb connection error:'));
@@ -44,8 +44,9 @@
  const signup = require('./routes/signup.route');
  app.use('/signup',signup);
 
- const getData = require('./routes/getdata.route');
- app.use('/getdata',getData)
+ //GetScores
+ const getScores = require('./routes/scores.route');
+ app.use('/getteamscores',getScores)
 
 
 /**
