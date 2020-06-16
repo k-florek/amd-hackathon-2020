@@ -30,14 +30,14 @@
  app.set('view engine','pug')
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: true }));
-
+ app.use(express.static('./views/public'));
 /**
  * Routes Definitions
  */
 
  //Landing Page
  app.get("/", (req, res) => {
-  res.status(200).send("The website works!");
+  res.render('index');
 });
 
  //Signup
@@ -45,8 +45,8 @@
  app.use('/signup',signup);
 
  //GetScores
- const getScores = require('./routes/scores.route');
- app.use('/getteamscores',getScores)
+ //const getScores = require('./routes/scores.route');
+ //app.use('/getteamscores',getScores)
 
  //SubmitQuestion
 
