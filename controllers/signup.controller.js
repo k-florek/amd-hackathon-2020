@@ -21,10 +21,3 @@ exports.signup = function (req,res) {
   });
   res.send('Signup Complete.\n Your token is:\n'+token);
 }
-
-exports.getTeams = function (req,res) {
-  Team.find({}, (err,data)=>{
-    console.log(data);
-    res.send("hi");
-  });
-}
