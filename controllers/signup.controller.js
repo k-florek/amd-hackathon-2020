@@ -1,6 +1,6 @@
 const Team = require('../models/teams.model');
 const Scores = require('../models/score.model');
-const hash = require('crypto').createHash('sha1');
+const crypto = require('crypto');
 
 exports.signup = function (req,res) {
   Team.exists({teamName:req.body.teamName}, (err,exists) => {
@@ -11,8 +11,9 @@ exports.signup = function (req,res) {
       res.send({success:false,message:`The team name ${req.body.teamName} is already used.`});
     }
     else{
+      const hash = crypto.createHash('sha1');
       let hashData = "amd-2020-" + req.body.teamName;
-      hash.update(hashData)
+      hash.update(hashData);
       let token = hash.digest('base64');
       let teamMembers = req.body.teamMembers.split(/\r?\n/g);
       let team = new Team(
@@ -31,6 +32,8 @@ exports.signup = function (req,res) {
       let score = new Scores(
         {
           teamName: req.body.teamName,
+          totalScore: 0,
+          totalTime: 0,
         }
       )
       score.save(function (err){
@@ -38,7 +41,7 @@ exports.signup = function (req,res) {
           console.log(err);
         }
       });
-      res.send({success:true,message:`Welcome team ${req.body.teamName}!`});
+      res.send({success:true,message:`Welcome team ${req.body.teamName}!</br>Your secret token is:</br><code>${token}</code><br>use this to submit answers!`});
     }
   });
 }

@@ -38,7 +38,7 @@ header.masthead.bg-primary.text-white.text-center
     .divider-custom.divider-light
       .divider-custom-line
       .divider-custom-icon
-        i.fas.fa-star
+        i.fas.fa-dna
       .divider-custom-line
     // Masthead Subheading
     p.masthead-subheading.font-weight-light.mb-0 Answer Questions - Get Points - Win Prizes
@@ -46,12 +46,12 @@ header.masthead.bg-primary.text-white.text-center
 section#portfolio.page-section.portfolio
   .container
     // Portfolio Section Heading
-    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Portfolio
+    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Questions
     // Icon Divider
     .divider-custom
       .divider-custom-line
       .divider-custom-icon
-        i.fas.fa-star
+        i.fas.fa-dna
       .divider-custom-line
     // Portfolio Grid Items
     .row
@@ -142,12 +142,12 @@ footer.footer.text-center
           .row.justify-content-center
             .col-lg-8
               // Portfolio Modal - Title
-              h2#signupLabel.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Hackathon Team </br>Sign Up
+              h2#signupLabel.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Hackathon </br>Sign Up
               // Icon Divider
               .divider-custom
                 .divider-custom-line
                 .divider-custom-icon
-                  i.fas.fa-star
+                  i.fas.fa-dna
                 .divider-custom-line
               // Signup Form
               form.form-horizontal(id='signupForm' method='post' action='/signup')
@@ -188,7 +188,7 @@ footer.footer.text-center
               .divider-custom
                 .divider-custom-line
                 .divider-custom-icon
-                  i.fas.fa-star
+                  i.fas.fa-dna
                 .divider-custom-line
               // Portfolio Modal - Image
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/cabin.png' alt='')
@@ -215,7 +215,7 @@ footer.footer.text-center
               .divider-custom
                 .divider-custom-line
                 .divider-custom-icon
-                  i.fas.fa-star
+                  i.fas.fa-dna
                 .divider-custom-line
               // Portfolio Modal - Image
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/cake.png' alt='')
@@ -242,7 +242,7 @@ footer.footer.text-center
               .divider-custom
                 .divider-custom-line
                 .divider-custom-icon
-                  i.fas.fa-star
+                  i.fas.fa-dna
                 .divider-custom-line
               // Portfolio Modal - Image
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/circus.png' alt='')
@@ -269,7 +269,7 @@ footer.footer.text-center
               .divider-custom
                 .divider-custom-line
                 .divider-custom-icon
-                  i.fas.fa-star
+                  i.fas.fa-dna
                 .divider-custom-line
               // Portfolio Modal - Image
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/game.png' alt='')
@@ -296,7 +296,7 @@ footer.footer.text-center
               .divider-custom
                 .divider-custom-line
                 .divider-custom-icon
-                  i.fas.fa-star
+                  i.fas.fa-dna
                 .divider-custom-line
               // Portfolio Modal - Image
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/safe.png' alt='')
@@ -323,7 +323,7 @@ footer.footer.text-center
               .divider-custom
                 .divider-custom-line
                 .divider-custom-icon
-                  i.fas.fa-star
+                  i.fas.fa-dna
                 .divider-custom-line
               // Portfolio Modal - Image
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/submarine.png' alt='')
@@ -354,10 +354,10 @@ script.
       success: function(data){
         if(data.success){
           $('#signupForm')[0].reset(); // to reset form data
-          $('#signupMsg').text(data.message);
+          $('#signupMsg').html(data.message);
         }
         else{
-          $('#signupMsg').text(data.message);
+          $('#signupMsg').html(data.message);
         }
       }
     })

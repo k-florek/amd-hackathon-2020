@@ -45,8 +45,8 @@
  app.use('/signup',signup);
 
  //GetScores
- //const getScores = require('./routes/scores.route');
- //app.use('/getteamscores',getScores)
+ const getScores = require('./routes/scores.route');
+ app.use('/getteamscores',getScores)
 
  //SubmitQuestion
 
