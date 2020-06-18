@@ -11,14 +11,15 @@
 /**
  * App Variables
  */
+ //get ENV variables
+ require.('dotenv').config();
  const app = express();
- const port = process.env.PORT || "8000";
- const mongo_uri = "mongodb://admin:admin@localhost:27017/amd-hackathon?authSource=admin"
+ const port = process.env.PORT;
+ const mongo_uri = process.env.MONGO;
 
 /**
 * Connect to database
 */
-
  mongoose.connect(mongo_uri, {useNewUrlParser: true, useUnifiedTopology: true , useCreateIndex: true});
  mongoose.Promise = global.Promise;
  let db = mongoose.connection;
