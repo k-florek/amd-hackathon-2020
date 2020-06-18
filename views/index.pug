@@ -3,7 +3,7 @@ head
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   meta(name='description' content='')
-  meta(name='author' content='')
+  meta(name='author' content='Kelsey R Florek')
   title AMD - Hackathon
   // Favicon
   link(rel='icon' type='image/x-icon' href='assets/img/favicon.ico')
@@ -14,6 +14,8 @@ head
   link(href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css')
   // Core theme CSS (includes Bootstrap)
   link(href='css/styles.css' rel='stylesheet')
+  // CAPTCHA
+  script(src="https://www.google.com/recaptcha/api.js?render="+siteKey)
 
 // Navigation
 nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
@@ -150,7 +152,7 @@ footer.footer.text-center
                   i.fas.fa-dna
                 .divider-custom-line
               // Signup Form
-              form.form-horizontal(id='signupForm' method='post' action='/signup')
+              form.form-horizontal(id='signupForm' action='/signup')
                 .form-label-group
                   label(for='teamName')
                     h4 Team Name
@@ -166,7 +168,7 @@ footer.footer.text-center
                     h4 Team Members
                   textarea.form-control(name='teamMembers' type='text' placeholder='Jane Smith\nJohn Smith' required='')
                 br
-                button.btn.btn-primary(name='submit' type='submit') Submit
+                button.btn.btn-primary(name='signupsubmit' type='submit') Submit
               br
               #signupMsg.h5
 
@@ -342,23 +344,28 @@ script(src='js/scripts.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js')
 //signup submission script
 script.
-  $("#signupForm").on('submit',function(event) {
-    event.preventDefault(); // to prevent default page reloading
-    var dataString = $(this).serialize(); // to get the form data
-    var url = $(this).attr('action');
-    console.log(dataString);
-    $.ajax({
-      type: "POST",
-      url: url,
-      data: dataString,
-      success: function(data){
-        if(data.success){
-          $('#signupForm')[0].reset(); // to reset form data
-          $('#signupMsg').html(data.message);
-        }
-        else{
-          $('#signupMsg').html(data.message);
-        }
-      }
-    })
+  grecaptcha.ready(function() {
+    $("#signupForm").on('submit',function(event){
+      event.preventDefault(); // to prevent default page reloading
+      grecaptcha.execute('#{siteKey}', {action: 'submit'})
+        .then(function(token) {
+          var dataString = $("#signupForm").serialize() + "&ctoken="+token; // to get the form data
+          var url = $("#signupForm").attr('action');
+          console.log(dataString);
+          $.ajax({
+            type: "POST",
+            url: url,
+            data: dataString,
+            success: function(data){
+              if(data.success){
+                $('#signupForm')[0].reset(); // to reset form data
+                $('#signupMsg').html(data.message);
+              }
+              else{
+                $('#signupMsg').html(data.message);
+              }
+            }
+          })
+        });
+    });
   });
