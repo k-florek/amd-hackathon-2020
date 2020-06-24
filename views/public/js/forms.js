@@ -1,17 +1,18 @@
-function signupSubmit(ctoken) {
-  var dataString = $("#signupForm").serialize() + "&ctoken="+ctoken; // to get the form data
-  var url = $("#signupForm").attr('action');
+function formSubmit(ctoken,oform) {
+  var dataString = $(oform).serialize() + "&ctoken="+ctoken; // to get the form data
+  var url = $(oform).attr('action');
   $.ajax({
     type: "POST",
     url: url,
     data: dataString,
     success: function(data){
       if(data.success){
-        $('#signupForm')[0].reset(); // to reset form data
-        $('#signupMsg').html(data.message);
+        $(oform)[0].reset(); // to reset form data
+        console.log($(oform).find('.message').val());
+        $(oform).find('.message').html(data.message);
       }
       else{
-        $('#signupMsg').html(data.message);
+        $(oform).find('.message').html(data.message);
       }
     }
   })

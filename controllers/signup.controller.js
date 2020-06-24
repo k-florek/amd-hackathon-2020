@@ -62,7 +62,7 @@ exports.signup = function (req,res) {
               console.error(err);
             }
           });
-          res.send({success:true,message:`Welcome team ${req.body.teamName}!</br>Your secret token is:</br><code>${token}</code><br>use this to submit answers!`});
+          res.send({success:true,message:`Welcome team ${req.body.teamName}!</br>Your secret key is:</br><code>${token}</code><br>use this when you submit answers!`});
         }
       });
     }

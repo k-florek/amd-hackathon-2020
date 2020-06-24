@@ -168,8 +168,8 @@ footer.footer.text-center
                   textarea.form-control(name='teamMembers' type='text' placeholder='Jane Smith\nJohn Smith' required='')
                 br
                 button.btn.btn-primary(name='signupsubmit' type='submit') Submit
-              br
-              #signupMsg.h5
+                br
+                .message.h5
 
 // Portfolio Modals
 // Portfolio Modal 1
@@ -195,10 +195,21 @@ footer.footer.text-center
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/1.png' alt='')
               // Portfolio Modal - Text
               p.mb-5
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-              button.btn.btn-primary(data-dismiss='modal')
-                i.fas.fa-times.fa-fw
-                | Close Window
+                | #{questions.q1}
+              form.form-horizontal(id='q1' action='/question/01')
+                .form-label-group
+                  label(for='Answer') 
+                    h4 Answer
+                  textarea.form-control(name='q1-answer' type='text' required='')
+                br
+                .form-label-group
+                  label(for='Token') 
+                    h4 Secret Key
+                  input.form-control(name='q1-token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                br
+                button.btn.btn-primary(name='q1submit' type='submit') Submit
+                br
+                .message.h5
 // Portfolio Modal 2
 #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal2Label' aria-hidden='true')
   .modal-dialog.modal-xl(role='document')
@@ -222,10 +233,21 @@ footer.footer.text-center
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/2.png' alt='')
               // Portfolio Modal - Text
               p.mb-5
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-              button.btn.btn-primary(data-dismiss='modal')
-                i.fas.fa-times.fa-fw
-                | Close Window
+                | #{questions.q2}
+              form.form-horizontal(id='q2' action='/question/02')
+                .form-label-group
+                  label(for='Answer') 
+                    h4 Answer
+                  textarea.form-control(name='q2-answer' type='text' required='')
+                br
+                .form-label-group
+                  label(for='Token') 
+                    h4 Secret Key
+                  input.form-control(name='q2-token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                br
+                button.btn.btn-primary(name='q2submit' type='submit') Submit
+                br
+                .message.h5
 // Portfolio Modal 3
 #portfolioModal3.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal3Label' aria-hidden='true')
   .modal-dialog.modal-xl(role='document')
@@ -345,9 +367,10 @@ script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.ea
 script(src='js/forms.js')
 script.
   grecaptcha.ready(function() {
-    $("#signupForm").on('submit',function(event){
+    $(document).on('submit','form',function(event){
       event.preventDefault(); // to prevent default page reloading
-      grecaptcha.execute('#{siteKey}', {action: 'submit'}).then(token => signupSubmit(token));
+      var $form = $(this);
+      grecaptcha.execute('#{siteKey}', {action: 'submit'}).then(token => formSubmit(token,$form));
     });
     
   });
