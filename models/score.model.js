@@ -3,38 +3,49 @@ const Schema = mongoose.Schema;
 
 let ScoreSchema = new Schema({
   teamName: {type: String, index:true, required: true},
-  totalScore: {type: Number},
-  totalTime: {type: Number},
+  token: {type: String, required: true},
+  totalScore: {type: Number, default:0},
+  totalTime: {type: Number, default:0},
 
-  q1CompleteTime: {type: Number},
-  q1Points: {type: Number},
+  q01CompleteTime: {type: Number, default:0},
+  q01Points: {type: Number, default:0},
+  q01Answer: {type:String, default:null},
 
-  q2CompleteTime: {type: Number},
-  q2Points: {type: Number},
+  q02CompleteTime: {type: Number, default:0},
+  q02Points: {type: Number, default:0},
+  q02Answer: {type:String, default:null},
 
-  q3CompleteTime: {type: Number},
-  q3Points: {type: Number},
+  q03CompleteTime: {type: Number, default:0},
+  q03Points: {type: Number, default:0},
+  q03Answer: {type:String, default:null},
 
-  q4CompleteTime: {type: Number},
-  q4Points: {type: Number},
+  q04CompleteTime: {type: Number, default:0},
+  q04Points: {type: Number, default:0},
+  q04Answer: {type:String, default:null},
 
-  q5CompleteTime: {type: Number},
-  q5Points: {type: Number},
+  q05CompleteTime: {type: Number, default:0},
+  q05Points: {type: Number, default:0},
+  q05Answer: {type:String, default:null},
 
-  q6CompleteTime: {type: Number},
-  q6Points: {type: Number},
+  q06CompleteTime: {type: Number, default:0},
+  q06Points: {type: Number, default:0},
+  q06Answer: {type:String, default:null},
 
-  q7CompleteTime: {type: Number},
-  q7Points: {type: Number},
+  q07CompleteTime: {type: Number, default:0},
+  q07Points: {type: Number, default:0},
+  q07Answer: {type:String, default:null},
 
-  q8CompleteTime: {type: Number},
-  q8Points: {type: Number},
+  q08CompleteTime: {type: Number, default:0},
+  q08Points: {type: Number, default:0},
+  q08Answer: {type:String, default:null},
 
-  q9CompleteTime: {type: Number},
-  q9Points: {type: Number},
-  
-  q10CompleteTime: {type: Number},
-  q10Points: {type: Number},
+  q09CompleteTime: {type: Number, default:0},
+  q09Points: {type: Number, default:0},
+  q09Answer: {type:String, default:null},
+
+  q10CompleteTime: {type: Number, default:0},
+  q10Points: {type: Number, default:0},
+  q10Answer: {type:String, default:null},
 
 });
 

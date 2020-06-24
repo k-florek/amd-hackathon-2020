@@ -53,8 +53,7 @@ exports.signup = function (req,res) {
           let score = new Scores(
             {
               teamName: req.body.teamName,
-              totalScore: 0,
-              totalTime: 0,
+              token:token
             }
           )
           score.save(function (err){

@@ -51,10 +51,11 @@
 
  //GetScores
  const getScores = require('./routes/scores.route');
- app.use('/getteamscores',getScores)
+ app.use('/getteamscores',getScores);
 
  //SubmitQuestion
-
+ const questionSubmit = require('./routes/questions.route');
+ app.use('/question',questionSubmit);
 
 /**
  * Server Activation

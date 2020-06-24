@@ -195,19 +195,19 @@ footer.footer.text-center
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/1.png' alt='')
               // Portfolio Modal - Text
               p.mb-5
-                | #{questions.q1}
-              form.form-horizontal(id='q1' action='/question/01')
+                | #{questions.q01}
+              form.form-horizontal(id='q01' action='/question/q01')
                 .form-label-group
-                  label(for='Answer') 
+                  label(for='q1answer') 
                     h4 Answer
-                  textarea.form-control(name='q1-answer' type='text' required='')
+                  textarea.form-control(name='q01answer' type='text' required='')
                 br
                 .form-label-group
                   label(for='Token') 
                     h4 Secret Key
-                  input.form-control(name='q1-token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  input.form-control(name='q01token' type='text' placeholder='Paste your team\'s secret key here' required='')
                 br
-                button.btn.btn-primary(name='q1submit' type='submit') Submit
+                button.btn.btn-primary(name='q01submit' type='submit') Submit
                 br
                 .message.h5
 // Portfolio Modal 2
@@ -233,19 +233,19 @@ footer.footer.text-center
               img.img-fluid.rounded.mb-5(src='assets/img/portfolio/2.png' alt='')
               // Portfolio Modal - Text
               p.mb-5
-                | #{questions.q2}
-              form.form-horizontal(id='q2' action='/question/02')
+                | #{questions.q02}
+              form.form-horizontal(id='q02' action='/question/q02')
                 .form-label-group
-                  label(for='Answer') 
+                  label(for='q2answer') 
                     h4 Answer
-                  textarea.form-control(name='q2-answer' type='text' required='')
+                  textarea.form-control(name='q02answer' type='text' required='')
                 br
                 .form-label-group
                   label(for='Token') 
                     h4 Secret Key
-                  input.form-control(name='q2-token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  input.form-control(name='q02token' type='text' placeholder='Paste your team\'s secret key here' required='')
                 br
-                button.btn.btn-primary(name='q2submit' type='submit') Submit
+                button.btn.btn-primary(name='q02submit' type='submit') Submit
                 br
                 .message.h5
 // Portfolio Modal 3
