@@ -8,10 +8,6 @@ exports.loadIndex = function (req,res) {
   let timeSinceEventStart = new Date() - new Date(process.env.START_TIME);
   let timeSinceEventReg = new Date() - new Date(process.env.REG_START);
   let timeSinceEventEnd = new Date() - new Date(process.env.END_TIME);
-  console.log(timeSinceEventReg)
-  console.log(timeSinceEventStart)
-  console.log(timeSinceEventEnd)
-
   //registration open
   if( timeSinceEventStart <= 0 && timeSinceEventReg >= 0 ){
     let reg = true;
