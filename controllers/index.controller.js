@@ -8,6 +8,13 @@ exports.loadIndex = function (req,res) {
   let timeSinceEventStart = new Date() - new Date(process.env.START_TIME);
   let timeSinceEventReg = new Date() - new Date(process.env.REG_START);
   let timeSinceEventEnd = new Date() - new Date(process.env.END_TIME);
+
+  //all open for dev and testing
+  let reg = true;
+  let e = true;
+  res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qa,e:e,reg:reg});
+  return;
+
   //registration open
   if( timeSinceEventStart <= 0 && timeSinceEventReg >= 0 ){
     let reg = true;

@@ -1,4 +1,8 @@
 {
-  "q01":"Please type in Yes.",
-  "q02":"Please type in No."
+  "q01":"Please enter Yes.",
+  "q02":"Please enter No.",
+  "q03":"Please enter 1234",
+  "q04":"Please enter E. coli",
+  "q05":"Please enter my favorite color.",
+  "q06":"Please enter my favorite number."
 }

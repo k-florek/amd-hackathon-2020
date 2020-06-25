@@ -25,11 +25,11 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
       | Menu 
       i.fas.fa-bars
     #navbarResponsive.collapse.navbar-collapse
-      ul.navbar-nav.ml-auto
       if reg
-        li.nav-item.mx-0.mx-lg-1
-          .mx-auto(data-toggle='modal' data-target='#signup') 
-            a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#') Sign Up
+        ul.navbar-nav.ml-auto
+          li.nav-item.mx-0.mx-lg-1
+            .mx-auto(data-toggle='modal' data-target='#signup') 
+              a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#') Sign Up
 // Masthead
 header.masthead.bg-primary.text-white.text-center
   .container.d-flex.align-items-center.flex-column
@@ -145,7 +145,7 @@ if reg
           .container
             .row.justify-content-center
               .col-lg-8
-                // Portfolio Modal - Title
+                // Sign Up - Title
                 h2#signupLabel.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Hackathon </br>Sign Up
                 // Icon Divider
                 .divider-custom
@@ -187,7 +187,7 @@ if e
           .container
             .row.justify-content-center
               .col-lg-8
-                // Portfolio Modal - Title
+                // Question - Title
                 h2#portfolioModal1Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 1
                 // Icon Divider
                 .divider-custom
@@ -195,14 +195,14 @@ if e
                   .divider-custom-icon
                     i.fas.fa-dna
                   .divider-custom-line
-                // Portfolio Modal - Image
+                // Question - Image
                 img.img-fluid.rounded.mb-5(src='assets/img/portfolio/1.png' alt='')
-                // Portfolio Modal - Text
+                // Question - Text
                 p.mb-5
                   | #{questions.q01}
                 form.form-horizontal(id='q01' action='/question/q01')
                   .form-label-group
-                    label(for='q1answer') 
+                    label(for='q01answer') 
                       h4 Answer
                     textarea.form-control(name='q01answer' type='text' required='')
                   br
@@ -225,7 +225,7 @@ if e
           .container
             .row.justify-content-center
               .col-lg-8
-                // Portfolio Modal - Title
+                // Question - Title
                 h2#portfolioModal2Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 2
                 // Icon Divider
                 .divider-custom
@@ -233,14 +233,14 @@ if e
                   .divider-custom-icon
                     i.fas.fa-dna
                   .divider-custom-line
-                // Portfolio Modal - Image
+                // Question - Image
                 img.img-fluid.rounded.mb-5(src='assets/img/portfolio/2.png' alt='')
-                // Portfolio Modal - Text
+                // Question - Text
                 p.mb-5
                   | #{questions.q02}
                 form.form-horizontal(id='q02' action='/question/q02')
                   .form-label-group
-                    label(for='q2answer') 
+                    label(for='q02answer') 
                       h4 Answer
                     textarea.form-control(name='q02answer' type='text' required='')
                   br
@@ -263,7 +263,7 @@ if e
           .container
             .row.justify-content-center
               .col-lg-8
-                // Portfolio Modal - Title
+                // Question - Title
                 h2#portfolioModal3Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 3
                 // Icon Divider
                 .divider-custom
@@ -271,14 +271,25 @@ if e
                   .divider-custom-icon
                     i.fas.fa-dna
                   .divider-custom-line
-                // Portfolio Modal - Image
+                // Question - Image
                 img.img-fluid.rounded.mb-5(src='assets/img/portfolio/3.png' alt='')
-                // Portfolio Modal - Text
+                // Question - Text
                 p.mb-5
-                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                button.btn.btn-primary(data-dismiss='modal')
-                  i.fas.fa-times.fa-fw
-                  | Close Window
+                  | #{questions.q03}
+                form.form-horizontal(id='q03' action='/question/q03')
+                  .form-label-group
+                    label(for='q03answer') 
+                      h4 Answer
+                    textarea.form-control(name='q03answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q03token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q03submit' type='submit') Submit
+                  br
+                  .message.h5
   // Question 4
   #portfolioModal4.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal4Label' aria-hidden='true')
     .modal-dialog.modal-xl(role='document')
@@ -290,7 +301,7 @@ if e
           .container
             .row.justify-content-center
               .col-lg-8
-                // Portfolio Modal - Title
+                // Question - Title
                 h2#portfolioModal4Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 4
                 // Icon Divider
                 .divider-custom
@@ -298,14 +309,25 @@ if e
                   .divider-custom-icon
                     i.fas.fa-dna
                   .divider-custom-line
-                // Portfolio Modal - Image
+                // Question - Image
                 img.img-fluid.rounded.mb-5(src='assets/img/portfolio/4.png' alt='')
-                // Portfolio Modal - Text
+                // Question - Text
                 p.mb-5
-                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                button.btn.btn-primary(data-dismiss='modal')
-                  i.fas.fa-times.fa-fw
-                  | Close Window
+                  | #{questions.q04}
+                form.form-horizontal(id='q04' action='/question/q04')
+                  .form-label-group
+                    label(for='q04answer') 
+                      h4 Answer
+                    textarea.form-control(name='q04answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q04token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q04submit' type='submit') Submit
+                  br
+                  .message.h5
   // Question 5
   #portfolioModal5.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal5Label' aria-hidden='true')
     .modal-dialog.modal-xl(role='document')
@@ -317,7 +339,7 @@ if e
           .container
             .row.justify-content-center
               .col-lg-8
-                // Portfolio Modal - Title
+                // Question - Title
                 h2#portfolioModal5Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 5
                 // Icon Divider
                 .divider-custom
@@ -325,14 +347,25 @@ if e
                   .divider-custom-icon
                     i.fas.fa-dna
                   .divider-custom-line
-                // Portfolio Modal - Image
+                // Question - Image
                 img.img-fluid.rounded.mb-5(src='assets/img/portfolio/5.png' alt='')
-                // Portfolio Modal - Text
+                // Question - Text
                 p.mb-5
-                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                button.btn.btn-primary(data-dismiss='modal')
-                  i.fas.fa-times.fa-fw
-                  | Close Window
+                  | #{questions.q05}
+                form.form-horizontal(id='q05' action='/question/q05')
+                  .form-label-group
+                    label(for='q05answer') 
+                      h4 Answer
+                    textarea.form-control(name='q05answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q05token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q05submit' type='submit') Submit
+                  br
+                  .message.h5
   // Question 6
   #portfolioModal6.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal6Label' aria-hidden='true')
     .modal-dialog.modal-xl(role='document')
@@ -344,7 +377,7 @@ if e
           .container
             .row.justify-content-center
               .col-lg-8
-                // Portfolio Modal - Title
+                // Question - Title
                 h2#portfolioModal6Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 6
                 // Icon Divider
                 .divider-custom
@@ -352,14 +385,25 @@ if e
                   .divider-custom-icon
                     i.fas.fa-dna
                   .divider-custom-line
-                // Portfolio Modal - Image
+                // Question - Image
                 img.img-fluid.rounded.mb-5(src='assets/img/portfolio/6.png' alt='')
-                // Portfolio Modal - Text
+                // Question - Text
                 p.mb-5
-                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                button.btn.btn-primary(data-dismiss='modal')
-                  i.fas.fa-times.fa-fw
-                  | Close Window
+                  | #{questions.q06}
+                form.form-horizontal(id='q06' action='/question/q06')
+                  .form-label-group
+                    label(for='q06answer') 
+                      h4 Answer
+                    textarea.form-control(name='q06answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q06token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q06submit' type='submit') Submit
+                  br
+                  .message.h5
 // Bootstrap core JS
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js')
