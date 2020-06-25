@@ -19,6 +19,27 @@ async function questionAnswered(token,qPts){
   })
 }
 
+//todo add function for updating total score
+async function updateTotalScore(token){
+  Scores.findOne({token:token}, (err,data)=>{
+    let totalTime = 0;
+    let totalScore = 0;
+    for(let key in data) {
+      if( key.includes('Points') ){
+        totalScore = totalScore + data[key];
+      }
+      if( key.includes('CompleteTime') ){
+        totalTime = totalTime + data[key];
+      }
+    }
+    Scores.updateOne({token:token},{totalScore:totalScore,totalTime:totalTime}, (err,result) => {
+      if(err){
+        console.error(err);
+      }
+    });
+  });
+}
+
 exports.updateScore = function (questionNumber, answer, token) {
   return new Promise((resolve,reject) => {
     //determine time it took to answer the question
@@ -30,7 +51,6 @@ exports.updateScore = function (questionNumber, answer, token) {
     let qFieldTime = questionNumber + "CompleteTime";
     let qFieldAnswer = questionNumber + "Answer";
     //check if question is already answered
-
     questionAnswered(token,qFieldPoints)
       .then(function(qAnswered) {
         if(qAnswered){
@@ -53,6 +73,7 @@ exports.updateScore = function (questionNumber, answer, token) {
               resolve(result.n);
             }
           });
+          updateTotalScore(token)
         }
       })
   });
