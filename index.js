@@ -7,7 +7,6 @@
  const path = require("path");
  const mongoose = require("mongoose");
  const bodyParser = require("body-parser");
- const fs = require("fs");
 
 /**
  * App Variables
@@ -17,8 +16,6 @@
  const app = express();
  const port = process.env.PORT;
  const mongo_uri = process.env.MONGO;
- //get Q/A data
- let qa = JSON.parse(fs.readFileSync('./question_data/questions.json'));
 
 /**
 * Connect to database
@@ -41,9 +38,8 @@
  */
 
  //Landing Page
- app.get("/", (req, res) => {
-  res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qa});
-});
+ const index = require('./routes/index.route');
+ app.use('/',index);
 
  //Signup
  const signup = require('./routes/signup.route');

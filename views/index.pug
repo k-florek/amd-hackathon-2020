@@ -26,6 +26,7 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
       i.fas.fa-bars
     #navbarResponsive.collapse.navbar-collapse
       ul.navbar-nav.ml-auto
+      if reg
         li.nav-item.mx-0.mx-lg-1
           .mx-auto(data-toggle='modal' data-target='#signup') 
             a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#') Sign Up
@@ -45,60 +46,61 @@ header.masthead.bg-primary.text-white.text-center
     // Masthead Subheading
     p.masthead-subheading.font-weight-light.mb-0 Answer Questions - Get Points - Win Prizes
 // Portfolio Section
-section#portfolio.page-section.portfolio
-  .container
-    // Portfolio Section Heading
-    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Questions
-    // Icon Divider
-    .divider-custom
-      .divider-custom-line
-      .divider-custom-icon
-        i.fas.fa-dna
-      .divider-custom-line
-    // Portfolio Grid Items
-    .row
-      // Portfolio Item 1
-      .col-md-6.col-lg-4.mb-5
-        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal1')
-          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-            .portfolio-item-caption-content.text-center.text-white
-              i.fas.fa-plus.fa-3x
-          img.img-fluid(src='assets/img/portfolio/1.png' alt='')
-      // Portfolio Item 2
-      .col-md-6.col-lg-4.mb-5
-        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal2')
-          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-            .portfolio-item-caption-content.text-center.text-white
-              i.fas.fa-plus.fa-3x
-          img.img-fluid(src='assets/img/portfolio/2.png' alt='')
-      // Portfolio Item 3
-      .col-md-6.col-lg-4.mb-5
-        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal3')
-          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-            .portfolio-item-caption-content.text-center.text-white
-              i.fas.fa-plus.fa-3x
-          img.img-fluid(src='assets/img/portfolio/3.png' alt='')
-      // Portfolio Item 4
-      .col-md-6.col-lg-4.mb-5.mb-lg-0
-        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal4')
-          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-            .portfolio-item-caption-content.text-center.text-white
-              i.fas.fa-plus.fa-3x
-          img.img-fluid(src='assets/img/portfolio/4.png' alt='')
-      // Portfolio Item 5
-      .col-md-6.col-lg-4.mb-5.mb-md-0
-        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal5')
-          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-            .portfolio-item-caption-content.text-center.text-white
-              i.fas.fa-plus.fa-3x
-          img.img-fluid(src='assets/img/portfolio/5.png' alt='')
-      // Portfolio Item 6
-      .col-md-6.col-lg-4
-        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal6')
-          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-            .portfolio-item-caption-content.text-center.text-white
-              i.fas.fa-plus.fa-3x
-          img.img-fluid(src='assets/img/portfolio/6.png' alt='')
+if e
+  section#portfolio.page-section.portfolio
+    .container
+      // Portfolio Section Heading
+      h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Questions
+      // Icon Divider
+      .divider-custom
+        .divider-custom-line
+        .divider-custom-icon
+          i.fas.fa-dna
+        .divider-custom-line
+      // Portfolio Grid Items
+      .row
+        // Portfolio Item 1
+        .col-md-6.col-lg-4.mb-5
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal1')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/1.png' alt='')
+        // Portfolio Item 2
+        .col-md-6.col-lg-4.mb-5
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal2')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/2.png' alt='')
+        // Portfolio Item 3
+        .col-md-6.col-lg-4.mb-5
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal3')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/3.png' alt='')
+        // Portfolio Item 4
+        .col-md-6.col-lg-4.mb-5.mb-lg-0
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal4')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/4.png' alt='')
+        // Portfolio Item 5
+        .col-md-6.col-lg-4.mb-5.mb-md-0
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal5')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/5.png' alt='')
+        // Portfolio Item 6
+        .col-md-6.col-lg-4
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal6')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/6.png' alt='')
 // Footer
 footer.footer.text-center
   .container
@@ -132,230 +134,232 @@ footer.footer.text-center
     i.fa.fa-chevron-up
 
 // Sign up form
-#signup.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='signupLabel' aria-hidden='true')
-  .modal-dialog.modal-xl(role='document')
-    .modal-content
-      button.close(type='button' data-dismiss='modal' aria-label='Close')
-        span(aria-hidden='true')
-          i.fas.fa-times
-      .modal-body.text-center
-        .container
-          .row.justify-content-center
-            .col-lg-8
-              // Portfolio Modal - Title
-              h2#signupLabel.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Hackathon </br>Sign Up
-              // Icon Divider
-              .divider-custom
-                .divider-custom-line
-                .divider-custom-icon
-                  i.fas.fa-dna
-                .divider-custom-line
-              // Signup Form
-              form.form-horizontal(id='signupForm' action='/signup')
-                .form-label-group
-                  label(for='teamName')
-                    h4 Team Name
-                  input.form-control(name='teamName' type='text' placeholder='Team Name' required='' autofocus='')
-                br
-                .form-label-group
-                  label(for='contactEmail') 
-                    h4 Contact Email
-                  input.form-control(name='contactEmail' type='email' placeholder='Email address' required='')
-                br
-                .form-label-group
-                  label(for='teamMembers') 
-                    h4 Team Members
-                  textarea.form-control(name='teamMembers' type='text' placeholder='Jane Smith\nJohn Smith' required='')
-                br
-                button.btn.btn-primary(name='signupsubmit' type='submit') Submit
-                br
-                .message.h5
+if reg
+  #signup.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='signupLabel' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Portfolio Modal - Title
+                h2#signupLabel.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Hackathon </br>Sign Up
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Signup Form
+                form.form-horizontal(id='signupForm' action='/signup')
+                  .form-label-group
+                    label(for='teamName')
+                      h4 Team Name
+                    input.form-control(name='teamName' type='text' placeholder='Team Name' required='' autofocus='')
+                  br
+                  .form-label-group
+                    label(for='contactEmail') 
+                      h4 Contact Email
+                    input.form-control(name='contactEmail' type='email' placeholder='Email address' required='')
+                  br
+                  .form-label-group
+                    label(for='teamMembers') 
+                      h4 Team Members
+                    textarea.form-control(name='teamMembers' type='text' placeholder='Jane Smith\nJohn Smith' required='')
+                  br
+                  button.btn.btn-primary(name='signupsubmit' type='submit') Submit
+                  br
+                  .message.h5
 
-// Portfolio Modals
-// Portfolio Modal 1
-#portfolioModal1.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal1Label' aria-hidden='true')
-  .modal-dialog.modal-xl(role='document')
-    .modal-content
-      button.close(type='button' data-dismiss='modal' aria-label='Close')
-        span(aria-hidden='true')
-          i.fas.fa-times
-      .modal-body.text-center
-        .container
-          .row.justify-content-center
-            .col-lg-8
-              // Portfolio Modal - Title
-              h2#portfolioModal1Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 1
-              // Icon Divider
-              .divider-custom
-                .divider-custom-line
-                .divider-custom-icon
-                  i.fas.fa-dna
-                .divider-custom-line
-              // Portfolio Modal - Image
-              img.img-fluid.rounded.mb-5(src='assets/img/portfolio/1.png' alt='')
-              // Portfolio Modal - Text
-              p.mb-5
-                | #{questions.q01}
-              form.form-horizontal(id='q01' action='/question/q01')
-                .form-label-group
-                  label(for='q1answer') 
-                    h4 Answer
-                  textarea.form-control(name='q01answer' type='text' required='')
-                br
-                .form-label-group
-                  label(for='Token') 
-                    h4 Secret Key
-                  input.form-control(name='q01token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                br
-                button.btn.btn-primary(name='q01submit' type='submit') Submit
-                br
-                .message.h5
-// Portfolio Modal 2
-#portfolioModal2.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal2Label' aria-hidden='true')
-  .modal-dialog.modal-xl(role='document')
-    .modal-content
-      button.close(type='button' data-dismiss='modal' aria-label='Close')
-        span(aria-hidden='true')
-          i.fas.fa-times
-      .modal-body.text-center
-        .container
-          .row.justify-content-center
-            .col-lg-8
-              // Portfolio Modal - Title
-              h2#portfolioModal2Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 2
-              // Icon Divider
-              .divider-custom
-                .divider-custom-line
-                .divider-custom-icon
-                  i.fas.fa-dna
-                .divider-custom-line
-              // Portfolio Modal - Image
-              img.img-fluid.rounded.mb-5(src='assets/img/portfolio/2.png' alt='')
-              // Portfolio Modal - Text
-              p.mb-5
-                | #{questions.q02}
-              form.form-horizontal(id='q02' action='/question/q02')
-                .form-label-group
-                  label(for='q2answer') 
-                    h4 Answer
-                  textarea.form-control(name='q02answer' type='text' required='')
-                br
-                .form-label-group
-                  label(for='Token') 
-                    h4 Secret Key
-                  input.form-control(name='q02token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                br
-                button.btn.btn-primary(name='q02submit' type='submit') Submit
-                br
-                .message.h5
-// Portfolio Modal 3
-#portfolioModal3.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal3Label' aria-hidden='true')
-  .modal-dialog.modal-xl(role='document')
-    .modal-content
-      button.close(type='button' data-dismiss='modal' aria-label='Close')
-        span(aria-hidden='true')
-          i.fas.fa-times
-      .modal-body.text-center
-        .container
-          .row.justify-content-center
-            .col-lg-8
-              // Portfolio Modal - Title
-              h2#portfolioModal3Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 3
-              // Icon Divider
-              .divider-custom
-                .divider-custom-line
-                .divider-custom-icon
-                  i.fas.fa-dna
-                .divider-custom-line
-              // Portfolio Modal - Image
-              img.img-fluid.rounded.mb-5(src='assets/img/portfolio/3.png' alt='')
-              // Portfolio Modal - Text
-              p.mb-5
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-              button.btn.btn-primary(data-dismiss='modal')
-                i.fas.fa-times.fa-fw
-                | Close Window
-// Portfolio Modal 4
-#portfolioModal4.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal4Label' aria-hidden='true')
-  .modal-dialog.modal-xl(role='document')
-    .modal-content
-      button.close(type='button' data-dismiss='modal' aria-label='Close')
-        span(aria-hidden='true')
-          i.fas.fa-times
-      .modal-body.text-center
-        .container
-          .row.justify-content-center
-            .col-lg-8
-              // Portfolio Modal - Title
-              h2#portfolioModal4Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 4
-              // Icon Divider
-              .divider-custom
-                .divider-custom-line
-                .divider-custom-icon
-                  i.fas.fa-dna
-                .divider-custom-line
-              // Portfolio Modal - Image
-              img.img-fluid.rounded.mb-5(src='assets/img/portfolio/4.png' alt='')
-              // Portfolio Modal - Text
-              p.mb-5
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-              button.btn.btn-primary(data-dismiss='modal')
-                i.fas.fa-times.fa-fw
-                | Close Window
-// Portfolio Modal 5
-#portfolioModal5.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal5Label' aria-hidden='true')
-  .modal-dialog.modal-xl(role='document')
-    .modal-content
-      button.close(type='button' data-dismiss='modal' aria-label='Close')
-        span(aria-hidden='true')
-          i.fas.fa-times
-      .modal-body.text-center
-        .container
-          .row.justify-content-center
-            .col-lg-8
-              // Portfolio Modal - Title
-              h2#portfolioModal5Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 5
-              // Icon Divider
-              .divider-custom
-                .divider-custom-line
-                .divider-custom-icon
-                  i.fas.fa-dna
-                .divider-custom-line
-              // Portfolio Modal - Image
-              img.img-fluid.rounded.mb-5(src='assets/img/portfolio/5.png' alt='')
-              // Portfolio Modal - Text
-              p.mb-5
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-              button.btn.btn-primary(data-dismiss='modal')
-                i.fas.fa-times.fa-fw
-                | Close Window
-// Portfolio Modal 6
-#portfolioModal6.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal6Label' aria-hidden='true')
-  .modal-dialog.modal-xl(role='document')
-    .modal-content
-      button.close(type='button' data-dismiss='modal' aria-label='Close')
-        span(aria-hidden='true')
-          i.fas.fa-times
-      .modal-body.text-center
-        .container
-          .row.justify-content-center
-            .col-lg-8
-              // Portfolio Modal - Title
-              h2#portfolioModal6Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 6
-              // Icon Divider
-              .divider-custom
-                .divider-custom-line
-                .divider-custom-icon
-                  i.fas.fa-dna
-                .divider-custom-line
-              // Portfolio Modal - Image
-              img.img-fluid.rounded.mb-5(src='assets/img/portfolio/6.png' alt='')
-              // Portfolio Modal - Text
-              p.mb-5
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-              button.btn.btn-primary(data-dismiss='modal')
-                i.fas.fa-times.fa-fw
-                | Close Window
+// Questions
+if e
+  // Question 1
+  #portfolioModal1.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal1Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Portfolio Modal - Title
+                h2#portfolioModal1Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 1
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Portfolio Modal - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/portfolio/1.png' alt='')
+                // Portfolio Modal - Text
+                p.mb-5
+                  | #{questions.q01}
+                form.form-horizontal(id='q01' action='/question/q01')
+                  .form-label-group
+                    label(for='q1answer') 
+                      h4 Answer
+                    textarea.form-control(name='q01answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q01token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q01submit' type='submit') Submit
+                  br
+                  .message.h5
+  // Question 2
+  #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal2Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Portfolio Modal - Title
+                h2#portfolioModal2Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 2
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Portfolio Modal - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/portfolio/2.png' alt='')
+                // Portfolio Modal - Text
+                p.mb-5
+                  | #{questions.q02}
+                form.form-horizontal(id='q02' action='/question/q02')
+                  .form-label-group
+                    label(for='q2answer') 
+                      h4 Answer
+                    textarea.form-control(name='q02answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q02token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q02submit' type='submit') Submit
+                  br
+                  .message.h5
+  // Question 3
+  #portfolioModal3.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal3Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Portfolio Modal - Title
+                h2#portfolioModal3Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 3
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Portfolio Modal - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/portfolio/3.png' alt='')
+                // Portfolio Modal - Text
+                p.mb-5
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                button.btn.btn-primary(data-dismiss='modal')
+                  i.fas.fa-times.fa-fw
+                  | Close Window
+  // Question 4
+  #portfolioModal4.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal4Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Portfolio Modal - Title
+                h2#portfolioModal4Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 4
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Portfolio Modal - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/portfolio/4.png' alt='')
+                // Portfolio Modal - Text
+                p.mb-5
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                button.btn.btn-primary(data-dismiss='modal')
+                  i.fas.fa-times.fa-fw
+                  | Close Window
+  // Question 5
+  #portfolioModal5.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal5Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Portfolio Modal - Title
+                h2#portfolioModal5Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 5
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Portfolio Modal - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/portfolio/5.png' alt='')
+                // Portfolio Modal - Text
+                p.mb-5
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                button.btn.btn-primary(data-dismiss='modal')
+                  i.fas.fa-times.fa-fw
+                  | Close Window
+  // Question 6
+  #portfolioModal6.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal6Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Portfolio Modal - Title
+                h2#portfolioModal6Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 6
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Portfolio Modal - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/portfolio/6.png' alt='')
+                // Portfolio Modal - Text
+                p.mb-5
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                button.btn.btn-primary(data-dismiss='modal')
+                  i.fas.fa-times.fa-fw
+                  | Close Window
 // Bootstrap core JS
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js')
