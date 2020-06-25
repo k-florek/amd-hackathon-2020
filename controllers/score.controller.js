@@ -5,11 +5,14 @@ let startTime = new Date(process.env.START_TIME);
 
 async function questionAnswered(token,qPts){
   return new Promise((resolve,reject) =>{
-    Scores.find({token:token}, (err,data) => {
+    let search = {};
+    search["token"] = token;
+    search[qPts] = 0;
+    Scores.exists(search, (err,data) => {
       if(err){
         reject(err);
       }
-      if(data[0][qPts] == 0){
+      if(data){
         resolve(false);
       }
       else{
@@ -17,6 +20,22 @@ async function questionAnswered(token,qPts){
       }
     });
   })
+}
+
+async function checkToken(token){
+    return new Promise((resolve,reject) =>{
+      Scores.exists({token:token}, (err,data) => {
+        if(err){
+          reject(err);
+        }
+        if(data){
+          resolve(true);
+        }
+        else{
+          resolve(false);
+        }
+      });
+    });
 }
 
 //todo add function for updating total score
@@ -50,32 +69,41 @@ exports.updateScore = function (questionNumber, answer, token) {
     let qFieldPoints = questionNumber + "Points";
     let qFieldTime = questionNumber + "CompleteTime";
     let qFieldAnswer = questionNumber + "Answer";
-    //check if question is already answered
-    questionAnswered(token,qFieldPoints)
-      .then(function(qAnswered) {
-        if(qAnswered){
-          reject("Question already answered");
+    //check token is correct
+    checkToken(token)
+      .then(function(tokenExists) {
+        if(tokenExists){
+          //check if question is already answered
+          questionAnswered(token,qFieldPoints)
+            .then(function(qAnswered) {
+              if(qAnswered){
+                reject("Question already answered");
+              }
+              else{
+                //set points and time
+                updateData[qFieldPoints] = 1;
+                updateData[qFieldTime] = hoursDiff;
+                updateData[qFieldAnswer] = answer
+                //update score
+                Scores.updateOne({token:token},updateData, (err,result) => {
+                  if(err){
+                    reject(err)
+                  }
+                  if(result.n < 1){
+                    reject("Incorrect Token");
+                  }
+                  else{
+                    resolve(result.n);
+                  }
+                });
+                updateTotalScore(token)
+              }
+            })
         }
         else{
-          //set points and time
-          updateData[qFieldPoints] = 1;
-          updateData[qFieldTime] = hoursDiff;
-          updateData[qFieldAnswer] = answer
-          //update score
-          Scores.updateOne({token:token},updateData, (err,result) => {
-            if(err){
-              reject(err)
-            }
-            if(result.n < 1){
-              reject("Incorrect Token");
-            }
-            else{
-              resolve(result.n);
-            }
-          });
-          updateTotalScore(token)
+          reject("Incorrect Token");
         }
-      })
+      });
   });
 }
 
