@@ -23,20 +23,25 @@ async function checkReCaptcha(ctoken) {
 
 function checkAnswer(qid,answer,teamToken) {
   return new Promise((resolve,reject) => {
-     let answers = JSON.parse(fs.readFileSync('./question_data/answers.json'));
-     let fuzzRatio = fuzz.ratio(answers[qid],answer);
-     if(fuzzRatio >= 98){
-       Score.updateScore(qid,answer,teamToken)
-        .then(function(){
-          resolve('Correct!');
-        }, function(err){
-          reject(err);
-        })
-     }
-     else{
-       reject(`Sorry that is an incorrect answer.`);
-     }
- });
+    fs.readFile('./question_data/answers.json', (err,data) =>{
+      if(err){
+        console.error(err);
+      }
+      let answers = JSON.parse(data);
+      let fuzzRatio = fuzz.ratio(answers[qid],answer);
+      if(fuzzRatio >= 98){
+        Score.updateScore(qid,answer,teamToken)
+         .then(function(){
+           resolve('Correct!');
+         }, function(err){
+           reject(err);
+         })
+      }
+      else{
+        reject(`Sorry that is an incorrect answer.`);
+      }
+    });
+  });
 }
 
 exports.questionSubmit = function (req,res) {
