@@ -1,9 +1,8 @@
 version: '3'
 services:
-  database:
+  mongodb:
     image: 'mongo'
     container_name: 'amd-hack-mongo'
-    #tied to init-mongo.js
     environment:
       - MONGO_INITDB_DATABASE=amd-hack
       - MONGO_INITDB_ROOT_USERNAME=admin
@@ -13,21 +12,23 @@ services:
       - ./mongo-data:/data/db
     ports:
       - '27017-27019:27017-27019'
+
   web:
     build: .
     command: npm run dev
+    container_name: 'amd-hack-web'
     volumes:
       - .:/usr/app
       - /usr/app/node_modules
     ports:
       - "8000:8000"
     depends_on:
-      - database
+      - mongodb
     environment:
-      REG_START: "06/22/2020 08:00"
-      START_TIME: "06/23/2020 08:00"
-      END_TIME: "06/24/2020 24:00"
-      PORT: "8000"
-      MONGO: "mongodb://admin:admin@localhost:27017/amd-hackathon?authSource=admin"
-      CAPTCHA_SECRET:
-      CAPTCHA_SITE:
+      - REG_START=06/22/2020 08:00
+      - START_TIME=06/23/2020 08:00
+      - END_TIME=06/24/2020 24:00
+      - PORT=8000
+      - MONGO=mongodb://admin:admin@amd-hack-mongo:27017/amd-hackathon?authSource=admin
+      - CAPTCHA_SECRET=
+      - CAPTCHA_SITE=
