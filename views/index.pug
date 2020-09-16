@@ -4,7 +4,7 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   meta(name='description' content='')
   meta(name='author' content='Kelsey R Florek')
-  title AMD - Hackathon
+  title AMD - Binfo Scavenger Hunt
   // Favicon
   link(rel='icon' type='image/x-icon' href='assets/img/favicon.ico')
   // Font Awesome icons (free version)
@@ -20,7 +20,7 @@ head
 // Navigation
 nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
   .container
-    a.navbar-brand.js-scroll-trigger(href='#page-top') AMD Hackathon
+    a.navbar-brand.js-scroll-trigger(href='#page-top') AMD Virtual 2020
     button.navbar-toggler.navbar-toggler-right.text-uppercase.font-weight-bold.bg-primary.text-white.rounded(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
       | Menu 
       i.fas.fa-bars
@@ -34,7 +34,7 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
 header.masthead.bg-primary.text-white.text-center
   .container.d-flex.align-items-center.flex-column
     // Masthead Avatar Image
-    img.masthead-avatar.mb-5(src='assets/img/avataaars.svg' alt='')
+    img.masthead-avatar.mb-5(src='assets/img/spash_art.png' alt='')
     // Masthead Heading
     h1.masthead-heading.text-uppercase.mb-0 Binfo Scavenger Hunt
     // Icon Divider
@@ -101,30 +101,61 @@ if e
               .portfolio-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
             img.img-fluid(src='assets/img/portfolio/6.png' alt='')
+        // Portfolio Item 7
+        .col-md-6.col-lg-4
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal7')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/7.png' alt='')
+        // Portfolio Item 8
+        .col-md-6.col-lg-4
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal8')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/8.png' alt='')
+        // Portfolio Item 9
+        .col-md-6.col-lg-4
+          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal9')
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid(src='assets/img/portfolio/9.png' alt='')
 // Footer
 footer.footer.text-center
   .container
     .row
       // Footer Location
       .col-lg-4.mb-5.mb-lg-0
-        h4.text-uppercase.mb-4 AMD Conference
+        h4.text-uppercase.mb-4 AMD Virtual 2020
         p.lead.mb-0 Link to Conference Website
       // Footer Social Icons
       .col-lg-4.mb-5.mb-lg-0
-        h4.text-uppercase.mb-4 Social Media
-        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
+        h4.text-uppercase.mb-4 Resources
+        p Use these resources for answering questions:
+        p
+          a(href="https://blast.ncbi.nlm.nih.gov/Blast.cgi") NCBI BLAST
+        p 
+          a(href="https://clades.nextstrain.org/") Nextclade
+        p 
+         a(href="https://usegalaxy.org/") Galaxy
+        p 
+          a(href="https://www.programiz.com/python-programming/online-compiler/") Online Python Compiler
+        //a.btn.btn-outline-light.btn-social.mx-1(href='#!')
           i.fab.fa-fw.fa-facebook-f
-        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
+        //a.btn.btn-outline-light.btn-social.mx-1(href='#!')
           i.fab.fa-fw.fa-twitter
-        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
+        //a.btn.btn-outline-light.btn-social.mx-1(href='#!')
           i.fab.fa-fw.fa-linkedin-in
-        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
+        //a.btn.btn-outline-light.btn-social.mx-1(href='#!')
           i.fab.fa-fw.fa-dribbble
       // Footer About Text
       .col-lg-4
-        h4.text-uppercase.mb-4 About AMD Hackathon
-        p.lead.mb-0
-          | Visit the conference website
+        h4.text-uppercase.mb-4 
+          p Issues ?
+          p
+           a(href=`mailto:binfohunt2020@gmail.com`) Contact Us
 .copyright.py-4.text-center.text-white
   .container
     small Copyright &copy; AMD Hackathon 2020
@@ -146,7 +177,7 @@ if reg
             .row.justify-content-center
               .col-lg-8
                 // Sign Up - Title
-                h2#signupLabel.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Hackathon </br>Sign Up
+                h2#signupLabel.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Binfo Scavenger Hunt </br>Sign Up
                 // Icon Divider
                 .divider-custom
                   .divider-custom-line
@@ -238,6 +269,9 @@ if e
                 // Question - Text
                 p.mb-5
                   | #{questions.q02}
+                p.mb-5
+                  | Data
+                  a(href='assets/data/q2.fasta') Fasta Sequence
                 form.form-horizontal(id='q02' action='/question/q02')
                   .form-label-group
                     label(for='q02answer') 
@@ -276,6 +310,9 @@ if e
                 // Question - Text
                 p.mb-5
                   | #{questions.q03}
+                p.mb-5
+                  | Data
+                  a(href='assets/data/q3.csv') Testing Results
                 form.form-horizontal(id='q03' action='/question/q03')
                   .form-label-group
                     label(for='q03answer') 
@@ -352,6 +389,10 @@ if e
                 // Question - Text
                 p.mb-5
                   | #{questions.q05}
+                p.mb-5
+                  | Data
+                  a(href='assets/data/q5_contaminated_sample_R1.fastq.gz') Forward Reads
+                  a(href='assets/data/q5_contaminated_sample_R2.fastq.gz') Reverse Reads
                 form.form-horizontal(id='q05' action='/question/q05')
                   .form-label-group
                     label(for='q05answer') 
@@ -404,6 +445,87 @@ if e
                   button.btn.btn-primary(name='q06submit' type='submit') Submit
                   br
                   .message.h5
+  // Question 7
+  #portfolioModal7.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal7Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Question - Title
+                h2#portfolioModal7Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 7
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Question - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/portfolio/7.png' alt='')
+                // Question - Text
+                p.mb-5
+                  | #{questions.q07}
+                form.form-horizontal(id='q07' action='/question/q07')
+                  .form-label-group
+                    label(for='q07answer') 
+                      h4 Answer
+                    textarea.form-control(name='q07answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q07token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q07submit' type='submit') Submit
+                  br
+                  .message.h5
+  // Question 8
+  #portfolioModal8.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal8Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-8
+                // Question - Title
+                h2#portfolioModal8Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 8
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Question - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/portfolio/8.png' alt='')
+                // Question - Text
+                p.mb-5
+                  | #{questions.q08}
+                p.mb-5
+                  | Data
+                  a(href='assets/data/q8.py') Python Script
+                form.form-horizontal(id='q08' action='/question/q08')
+                  .form-label-group
+                    label(for='q08answer') 
+                      h4 Answer
+                    textarea.form-control(name='q08answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q08token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q08submit' type='submit') Submit
+                  br
+                  .message.h5
+                  
+                  
 // Bootstrap core JS
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js')

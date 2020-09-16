@@ -1,8 +1,11 @@
 {
-  "q01":"Please enter Yes.",
-  "q02":"Please enter No.",
-  "q03":"Please enter 1234",
-  "q04":"Please enter E. coli",
-  "q05":"Please enter my favorite color.",
-  "q06":"Please enter my favorite number."
+  "q01":"It's the first question, this should be easy. In the picture shown, what is the name of the outgroup?",
+  "q02":"This scavenger hunt is a blast!! What NCBI taxonomic id does this sequence belong to?",
+  "q03":"The year is 2024 and yet another NGS based test for detecting SARS-CoV-2 using a \"novel\" set of primers (based on ARTIC) has just been developed. It is up to you to save humanity and determine the sensitivity and specificity of this test. They have a set of 299 samples, and they test each sample twice. If the first and second test are discordant, a third test is performed. All the results are stored in the csv file, with a positive result (i.e. the gene amplified) denoted as 1, and a negative result (i.e. the gene did not amplify) denoted as 0.  Based on the initial results of Test1, what is the sensitivity and specificity of this test? Please provide your answer in the following format to exactly 3 decimal places: sensitivity,specificity i.e. 0.123,0.431. \n (For the purpose of this exercise, two concordant test results are considered a true value, and all positive and negative controls are assumed to have worked)",
+  "q04":"",
+  "q05":"You are tasked with analyzing SARS-CoV-2 samples that were placed on an illumina sequencing run that included other high priority public health samples. You noticed one of the samples didn't generate a quality genome. It is likely contaminated but your taskmaster supervisor won't settle unless you identify the contamination.",
+  "q06":"A recent outbreak of SARS-CoV-2 contains a mutation that appears to convey immune escape as a number of people in the outbreak appear to have had previous infections. Identify which protein has had significant changes among the outbreak strains compared to the reference obtained form previously circulating viruses.",
+  "q07":"",
+  "q08":"You come into work one day to find your co-worker missing. When you check your email you find a poorly documented python script and some seemingly random chunk of dna. You co-worker was always cryptic about what was going on so you suspect there is a hidden message in the DNA. Although it seems they were better at encoding messages than programming as there are still some errors in the code. They were supposed to buy lunch today...",
+  "q09":""
 }
