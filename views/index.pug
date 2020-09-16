@@ -80,41 +80,43 @@ if e
               .portfolio-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
             img.img-fluid(src='assets/img/questions/3.png' alt='')
+      .row
         // Questions Item 4
-        .col-md-6.col-lg-4.mb-5.mb-lg-0
+        .col-md-6.col-lg-4.mb-5
           .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal4')
             .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
               .portfolio-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
             img.img-fluid(src='assets/img/questions/4.png' alt='')
         // Questions Item 5
-        .col-md-6.col-lg-4.mb-5.mb-md-0
+        .col-md-6.col-lg-4.mb-5
           .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal5')
             .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
               .portfolio-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
             img.img-fluid(src='assets/img/questions/5.png' alt='')
         // Questions Item 6
-        .col-md-6.col-lg-4
+        .col-md-6.col-lg-4.mb-5
           .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal6')
             .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
               .portfolio-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
             img.img-fluid(src='assets/img/questions/6.png' alt='')
+      .row
         // Questions Item 7
-        .col-md-6.col-lg-4
+        .col-md-6.col-lg-4.mb-5
           .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal7')
             .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
               .portfolio-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
             img.img-fluid(src='assets/img/questions/7.png' alt='')
         // Questions Item 8
-        .col-md-6.col-lg-4
+        .col-md-6.col-lg-4.mb-5
           .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal8')
             .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
               .portfolio-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/8.png' alt='')
+            img.img-fluid(src='assets/img/questions/8.jpg' alt='')
 // Footer
 footer.footer.text-center
   .container
@@ -344,6 +346,9 @@ if e
                 // Question - Text
                 p.mb-5
                   | #{questions.q04}
+                h4 Data
+                p
+                  a(href='assets/data/q4.bam') First Run Dataset
                 form.form-horizontal(id='q04' action='/question/q04')
                   .form-label-group
                     label(for='q04answer') 
