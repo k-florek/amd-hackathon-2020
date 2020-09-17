@@ -18,7 +18,7 @@ services:
     command: npm run dev
     container_name: 'amd-hack-web'
     volumes:
-      - .:/usr/app
+      - ./:/usr/app
       - /usr/app/node_modules
     ports:
       - "8000:8000"
@@ -32,3 +32,5 @@ services:
       - MONGO=mongodb://admin:admin@amd-hack-mongo:27017/amd-hackathon?authSource=admin
       - CAPTCHA_SECRET=
       - CAPTCHA_SITE=
+      - emailUserName=
+      - emailPassword=
