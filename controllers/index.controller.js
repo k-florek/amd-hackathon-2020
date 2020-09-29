@@ -10,10 +10,12 @@ exports.loadIndex = function (req,res) {
   let timeSinceEventEnd = new Date() - new Date(process.env.END_TIME);
 
   //all open for dev and testing
-  let reg = true;
-  let e = true;
-  res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qa,e:e,reg:reg});
-  return;
+  if(process.env.ENV=="dev"){
+    let reg = true;
+    let e = true;
+    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qa,e:e,reg:reg});
+    return;
+  }
 
   //registration open
   if( timeSinceEventStart <= 0 && timeSinceEventReg >= 0 ){

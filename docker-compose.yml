@@ -15,7 +15,7 @@ services:
 
   web:
     build: .
-    command: npm run dev
+    command: npm run start
     container_name: 'amd-hack-web'
     volumes:
       - ./:/usr/app
@@ -25,9 +25,10 @@ services:
     depends_on:
       - mongodb
     environment:
-      - REG_START=06/22/2020 08:00
-      - START_TIME=06/23/2020 08:00
-      - END_TIME=06/24/2020 24:00
+      - ENV=dev
+      - REG_START=09/20/2020 08:00
+      - START_TIME=09/22/2020 08:00
+      - END_TIME=10/2/2020 24:00
       - PORT=8000
       - MONGO=mongodb://admin:admin@amd-hack-mongo:27017/amd-hackathon?authSource=admin
       - CAPTCHA_SECRET=
