@@ -26,9 +26,14 @@ services:
       - mongodb
     environment:
       - ENV=dev
-      - REG_START=09/20/2020 08:00
-      - START_TIME=09/22/2020 08:00
-      - END_TIME=10/2/2020 24:00
+      #date/times are UTC
+      - REG_START=10/07/2020 20:29
+      - START_TIME=10/07/2020 20:30
+      - QSET1=10/07/2020 20:31 #should be set to the same as START_TIME
+      - QSET2=10/07/2020 20:32
+      - QSET3=10/07/2020 20:33
+      - QSET4=10/07/2020 20:34
+      - END_TIME=10/7/2020 20:35
       - PORT=8000
       - MONGO=mongodb://admin:admin@amd-hack-mongo:27017/amd-hackathon?authSource=admin
       - CAPTCHA_SECRET=

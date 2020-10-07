@@ -25,7 +25,7 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
       | Menu 
       i.fas.fa-bars
     #navbarResponsive.collapse.navbar-collapse
-      if reg
+      if registration_open
         ul.navbar-nav.ml-auto
           li.nav-item.mx-0.mx-lg-1
             .mx-auto(data-toggle='modal' data-target='#signup') 
@@ -46,7 +46,7 @@ header.masthead.bg-primary.text-white.text-center
     // Masthead Subheading
     p.masthead-subheading.font-weight-light.mb-0 Answer Questions - Get Points - Win Prizes
 // Question Section
-if e
+if event_ended == false
   section#portfolio.page-section.portfolio
     .container
       // Question Section Heading
@@ -58,77 +58,109 @@ if e
           i.fas.fa-dna
         .divider-custom-line
       // Questions Grid Items
-      .row
-        // Questions Item 1
-        .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal1')
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/1.png' alt='')
-        // Questions Item 2
-        .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal2')
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/2.png' alt='')
-        // Questions Item 3
-        .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal3')
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/3.png' alt='')
-      .row
-        // Questions Item 4
-        .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal4')
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/4.png' alt='')
-        // Questions Item 5
-        .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal5')
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/5.png' alt='')
-        // Questions Item 6
-        .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal6')
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/6.png' alt='')
-      .row
-        // Questions Item 7
-        .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal7')
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/7.png' alt='')
-        // Questions Item 8
-        .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal8')
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid(src='assets/img/questions/8.jpg' alt='')
-  section#portfolio.page-section.portfolio.bg-primary
-    .container.d-flex.align-items-center.flex-column
-      // Chat Section Heading
-      h2.page-section-heading.text-center.text-uppercase.text-white.mb-0 Chat
+      if event_started
+        if qset >= 1
+          .row
+            // Questions Item 1
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal1')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/1.png' alt='')
+            // Questions Item 2
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal2')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/2.png' alt='')
+            // Questions Item 3
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal3')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/3.png' alt='')
+        if qset >= 2
+          .row
+            // Questions Item 4
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal4')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/4.png' alt='')
+            // Questions Item 5
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal5')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/5.png' alt='')
+            // Questions Item 6
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal6')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/6.png' alt='')
+        if qset >= 3
+          .row
+            // Questions Item 7
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal7')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/7.png' alt='')
+            // Questions Item 8
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal8')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/8.jpg' alt='')
+            // Questions Item 9
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal9')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/9.png' alt='')
+        if qset >= 4
+          .row
+            // Questions Item 10
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal10')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/10.jpg' alt='')
+else
+  section#portfolio.page-section.portfolio
+    .container
+      // Question Section Heading
+      h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Event Closed 
       // Icon Divider
-      .divider-custom.divider-light
+      .divider-custom
         .divider-custom-line
         .divider-custom-icon
           i.fas.fa-dna
         .divider-custom-line
-      // Embedded Gitter Chat
-      iframe(src='https://gitter.im/AMDVirtual2020/community/~embed')
+      h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Thank You For Competing
+section#portfolio.page-section.portfolio.bg-primary
+  .container.d-flex.align-items-center.flex-column
+    // Chat Section Heading
+    h2.page-section-heading.text-center.text-uppercase.text-white.mb-0 Chat
+    // Icon Divider
+    .divider-custom.divider-light
+      .divider-custom-line
+      .divider-custom-icon
+        i.fas.fa-dna
+      .divider-custom-line
+    // Embedded Gitter Chat
+    iframe(src='https://gitter.im/AMDVirtual2020/community/~embed')
 // Footer
 footer.footer.text-center
   .container
