@@ -23,16 +23,16 @@ async function checkReCaptcha(ctoken) {
 
 function checkAnswer(qid,answer,teamToken) {
   return new Promise((resolve,reject) => {
-    fs.readFile('./question_data/answers.json', (err,data) =>{
+    fs.readFile('./question_data/qdata.json', (err,data) =>{
       if(err){
         console.error(err);
       }
-      let answers = JSON.parse(data);
-      let fuzzRatio = fuzz.ratio(answers[qid],answer);
+      let qdata = JSON.parse(data);
+      let fuzzRatio = fuzz.ratio(qdata["answers"][qid],answer);
       if(fuzzRatio >= 98){
         Score.updateScore(qid,answer,teamToken)
          .then(function(){
-           resolve('Correct!');
+           resolve(qdata["responses"][qid]);
          }, function(err){
            reject(err);
          })

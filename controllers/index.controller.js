@@ -2,7 +2,7 @@ const fs = require("fs");
 
 exports.loadIndex = function (req,res) {
   //get Q/A data
-  let qa = JSON.parse(fs.readFileSync('./question_data/questions.json'));
+  let qdata = JSON.parse(fs.readFileSync('./question_data/qdata.json'))["questions"];
 
   //figure out if its registration time or event time
   let timeSinceEventReg = new Date() - new Date(process.env.REG_START);
@@ -34,25 +34,25 @@ exports.loadIndex = function (req,res) {
     registration_open = true;
     event_started = true;
     qset = 4;
-    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qa,event_started:event_started,registration_open:registration_open,qset:qset,event_ended:event_ended});
+    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qdata,event_started:event_started,registration_open:registration_open,qset:qset,event_ended:event_ended});
     return;
   }
 
   //registration open
   if( timeSinceEventStart <= 0 && timeSinceEventReg >= 0 ){
     registration_open = true;
-    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qa,event_started:event_started,registration_open:registration_open,qset:qset,event_ended:event_ended});
+    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qdata,event_started:event_started,registration_open:registration_open,qset:qset,event_ended:event_ended});
   }
 
   //event started
   if(timeSinceEventStart >= 0 && timeSinceEventEnd <= 0){
     event_started = true;
-    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qa,event_started:event_started,registration_open:registration_open,qset:qset,event_ended:event_ended});
+    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qdata,event_started:event_started,registration_open:registration_open,qset:qset,event_ended:event_ended});
   }
 
   //registration is closed event is closed
   if(timeSinceEventEnd >= 0 || timeSinceEventReg <= 0){
     event_ended = true;
-    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qa,event_started:event_started,registration_open:registration_open,qset:qset,event_ended:event_ended});
+    res.render('index',{siteKey:process.env.CAPTCHA_SITE,questions:qdata,event_started:event_started,registration_open:registration_open,qset:qset,event_ended:event_ended});
   }
 }
