@@ -56,12 +56,15 @@ exports.signup = function (req,res) {
           let hashData = "amd-2020-" + req.body.teamName;
           hash.update(hashData);
           let token = hash.digest('base64');
-          let teamMembers = req.body.teamMembers.split(/\r?\n/g);
           let team = new Team(
             {
               teamName: req.body.teamName,
               contactEmail: req.body.contactEmail,
-              teamMembers: teamMembers,
+              teamMemberOne: req.body.teamMemberOne,
+              teamMemberTwo: req.body.teamMemberTwo,
+              teamMemberThree: req.body.teamMemberThree,
+              teamMemberFour: req.body.teamMemberFour,
+              teamMemberFive: req.body.teamMemberFive,
               teamToken: token,
             }
           );

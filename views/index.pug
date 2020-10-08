@@ -46,7 +46,7 @@ header.masthead.bg-primary.text-white.text-center
     // Masthead Subheading
     p.masthead-subheading.font-weight-light.mb-0 Answer Questions - Get Points - Win Prizes
 // Question Section
-if event_ended == false
+if event_ended === false
   section#portfolio.page-section.portfolio
     .container
       // Question Section Heading
@@ -127,7 +127,7 @@ if event_ended == false
                 .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
                   .portfolio-item-caption-content.text-center.text-white
                     i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/9.png' alt='')
+                img.img-fluid(src='assets/img/questions/8.jpg' alt='')
         if qset >= 4
           .row
             // Questions Item 10
@@ -136,7 +136,7 @@ if event_ended == false
                 .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
                   .portfolio-item-caption-content.text-center.text-white
                     i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/10.jpg' alt='')
+                img.img-fluid(src='assets/img/questions/8.jpg' alt='')
 else
   section#portfolio.page-section.portfolio
     .container
@@ -204,7 +204,7 @@ footer.footer.text-center
     i.fa.fa-chevron-up
 
 // Sign up form
-if reg
+if registration_open
   #signup.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='signupLabel' aria-hidden='true')
     .modal-dialog.modal-xl(role='document')
       .modal-content
@@ -238,14 +238,25 @@ if reg
                   .form-label-group
                     label(for='teamMembers') 
                       h4 Team Members
-                    textarea.form-control(name='teamMembers' type='text' placeholder='Jane Smith\nJohn Smith' required='')
+                    ul
+                      //textarea.form-control(name='teamMembers' type='text' placeholder='Jane Smith\nJohn Smith' required='')
+                      li.list-group-item
+                        input.form-control(name='teamMemberOne' type='text' placeholder='First' required='')
+                      li.list-group-item
+                        input.form-control(name='teamMemberTwo' type='text' placeholder='Second')
+                      li.list-group-item
+                        input.form-control(name='teamMemberThree' type='text' placeholder='Third')
+                      li.list-group-item
+                        input.form-control(name='teamMemberFour' type='text' placeholder='Fourth')
+                      li.list-group-item
+                        input.form-control(name='teamMemberFive' type='text' placeholder='Fith')
                   br
                   button.btn.btn-primary(name='signupsubmit' type='submit') Submit
                   br
                   .message.h5
 
 // Questions
-if e
+if event_started
   // Question 1
   #portfolioModal1.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal1Label' aria-hidden='true')
     .modal-dialog.modal-xl(role='document')
