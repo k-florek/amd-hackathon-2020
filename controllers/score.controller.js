@@ -1,5 +1,6 @@
 const Scores = require('../models/score.model');
 const Teams = require('../models/teams.model');
+const fs = require('fs');
 
 let startTime = new Date(process.env.START_TIME);
 
@@ -77,7 +78,13 @@ exports.updateScore = function (questionNumber, answer, token) {
           questionAnswered(token,qFieldPoints)
             .then(function(qAnswered) {
               if(qAnswered){
-                reject("Question already answered");
+                fs.readFile('./question_data/qdata.json', (err,data) =>{
+                  if(err){
+                    console.error(err);
+                  }
+                  let qdata = JSON.parse(data);
+                  reject("Question Already "+qdata["responses"][questionNumber]);
+                })
               }
               else{
                 //set points and time
