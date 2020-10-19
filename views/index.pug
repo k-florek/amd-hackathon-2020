@@ -127,7 +127,7 @@ if event_ended === false
                 .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
                   .portfolio-item-caption-content.text-center.text-white
                     i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/8.jpg' alt='')
+                img.img-fluid(src='assets/img/questions/9.png' alt='')
         if qset >= 4
           .row
             // Questions Item 10
@@ -136,7 +136,7 @@ if event_ended === false
                 .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
                   .portfolio-item-caption-content.text-center.text-white
                     i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/8.jpg' alt='')
+                img.img-fluid(src='assets/img/questions/10.jpg' alt='')
 else
   section#portfolio.page-section.portfolio
     .container
@@ -167,12 +167,12 @@ footer.footer.text-center
     .row
       // Footer Location
       .col-lg-4.mb-5.mb-lg-0
-        h4.text-uppercase.mb-4 AMD Virtual 2020
-        p.lead.mb-0 Link to Conference Website
+        h4.text-uppercase.mb-4
+          a(href="https://amd2020.gtr.pathable.com/" style="color:white") AMD Virtual 2020
       // Footer Social Icons
       .col-lg-4.mb-5.mb-lg-0
         h4.text-uppercase.mb-4 Resources
-        p Use these resources for answering questions:
+        p All questions can be answered using some combination of the tools below
         p
           a(href="https://blast.ncbi.nlm.nih.gov/Blast.cgi") NCBI BLAST
         p 
@@ -181,6 +181,10 @@ footer.footer.text-center
          a(href="https://usegalaxy.org/") Galaxy
         p 
           a(href="https://www.programiz.com/python-programming/online-compiler/") Online Python Compiler
+        p
+          a(href="https://microbetrace.cdc.gov/MicrobeTrace/") MicrobeTrace
+        p
+          a(href="https://amdvirtualhub-dev.cdc.gov/jupyter") Jupyter Hub 
         //a.btn.btn-outline-light.btn-social.mx-1(href='#!')
           i.fab.fa-fw.fa-facebook-f
         //a.btn.btn-outline-light.btn-social.mx-1(href='#!')
@@ -192,9 +196,7 @@ footer.footer.text-center
       // Footer About Text
       .col-lg-4
         h4.text-uppercase.mb-4 
-          p Issues ?
-          p
-           a(href=`mailto:binfohunt2020@gmail.com`) Contact Us
+          a(href=`mailto:binfohunt2020@gmail.com` style="color:white") Issues
 .copyright.py-4.text-center.text-white
   .container
     small Copyright &copy; AMD Hackathon 2020
@@ -562,7 +564,7 @@ if event_started
                     i.fas.fa-dna
                   .divider-custom-line
                 // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/8.png' alt='')
+                img.img-fluid.rounded.mb-5(src='assets/img/questions/8.jpg' alt='')
                 // Question - Text
                 p.mb-5
                   | #{questions.q08}
@@ -583,7 +585,88 @@ if event_started
                   button.btn.btn-primary(name='q08submit' type='submit') Submit
                   br
                   .message.h5
-                  
+  // Question 9
+  #portfolioModal9.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal9Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-9
+                // Question - Title
+                h2#portfolioModal9Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 9
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Question - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/questions/9.png' alt='')
+                // Question - Text
+                p.mb-5
+                  | #{questions.q09}
+                h4 Data
+                p
+                  a(href='assets/data/q9.fasta') Alignment
+                form.form-horizontal(id='q09' action='/question/q09')
+                  .form-label-group
+                    label(for='q09answer') 
+                      h4 Answer
+                    textarea.form-control(name='q09answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q09token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q09submit' type='submit') Submit
+                  br
+                  .message.h5
+  // Question 10
+  #portfolioModal10.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal10Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-10
+                // Question - Title
+                h2#portfolioModal10Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 10
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Question - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/questions/10.png' alt='')
+                // Question - Text
+                p.mb-5
+                  | #{questions.q10}
+                h4 Data
+                p
+                  a(href='assets/data/q10.csv') Sample Data
+                form.form-horizontal(id='q10' action='/question/q010')
+                  .form-label-group
+                    label(for='q10answer') 
+                      h4 Answer
+                    textarea.form-control(name='q10answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q10token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q10submit' type='submit') Submit
+                  br
+                  .message.h5
                   
 // Bootstrap core JS
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
