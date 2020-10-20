@@ -137,6 +137,13 @@ if event_ended === false
                   .portfolio-item-caption-content.text-center.text-white
                     i.fas.fa-plus.fa-3x
                 img.img-fluid(src='assets/img/questions/10.jpg' alt='')
+            // Questions Item 11
+            .col-md-6.col-lg-4.mb-5
+              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal11')
+                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+                  .portfolio-item-caption-content.text-center.text-white
+                    i.fas.fa-plus.fa-3x
+                img.img-fluid(src='assets/img/questions/11.jpg' alt='')
 else
   section#portfolio.page-section.portfolio
     .container
@@ -282,7 +289,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/1.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q01}
+                  | !{questions.q01}
                 form.form-horizontal(id='q01' action='/question/q01')
                   .form-label-group
                     label(for='q01answer') 
@@ -320,7 +327,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/2.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q02}
+                  | !{questions.q02}
                 h4 Data
                 p
                   a(href='assets/data/q2.fasta') Fasta Sequence
@@ -361,7 +368,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/3.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q03}
+                  | !{questions.q03}
                 h4 Data
                 p
                   a(href='assets/data/q3.csv') Testing Results
@@ -402,7 +409,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/4.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q04}
+                  | !{questions.q04}
                 h4 Data
                 p
                   a(href='assets/data/q4.bam') First Run Dataset
@@ -443,7 +450,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/5.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q05}
+                  | !{questions.q05}
                 h4 Data
                 p
                   a(href='assets/data/q5_contaminated_sample_R1.fastq.gz') Forward Reads <br>
@@ -485,7 +492,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/6.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q06}
+                  | !{questions.q06}
                 h4 Data
                 p
                   a(href='assets/data/q6.fasta') Sequences
@@ -526,7 +533,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/7.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q07}
+                  | !{questions.q07}
                 h4 Data
                 p
                   a(href='assets/data/q7.fasta') Sequences
@@ -567,7 +574,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/8.jpg' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q08}
+                  | !{questions.q08}
                 h4 Data
                 p
                   a(href='assets/data/q8.py') Python Script
@@ -608,7 +615,7 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/9.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q09}
+                  | !{questions.q09}
                 h4 Data
                 p
                   a(href='assets/data/q9.fasta') Alignment
@@ -649,11 +656,11 @@ if event_started
                 img.img-fluid.rounded.mb-5(src='assets/img/questions/10.png' alt='')
                 // Question - Text
                 p.mb-5
-                  | #{questions.q10}
+                  | !{questions.q10}
                 h4 Data
                 p
                   a(href='assets/data/q10.csv') Sample Data
-                form.form-horizontal(id='q10' action='/question/q010')
+                form.form-horizontal(id='q10' action='/question/q10')
                   .form-label-group
                     label(for='q10answer') 
                       h4 Answer
@@ -665,6 +672,47 @@ if event_started
                     input.form-control(name='q10token' type='text' placeholder='Paste your team\'s secret key here' required='')
                   br
                   button.btn.btn-primary(name='q10submit' type='submit') Submit
+                  br
+                  .message.h5
+  // Question 11
+  #portfolioModal11.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal11Label' aria-hidden='true')
+    .modal-dialog.modal-xl(role='document')
+      .modal-content
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true')
+            i.fas.fa-times
+        .modal-body.text-center
+          .container
+            .row.justify-content-center
+              .col-lg-11
+                // Question - Title
+                h2#portfolioModal11Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 11
+                // Icon Divider
+                .divider-custom
+                  .divider-custom-line
+                  .divider-custom-icon
+                    i.fas.fa-dna
+                  .divider-custom-line
+                // Question - Image
+                img.img-fluid.rounded.mb-5(src='assets/img/questions/11.jpg' alt='')
+                // Question - Text
+                p.mb-5
+                  | !{questions.q11}
+                h4 Data
+                p
+                  a(href='assets/data/q11.csv') Sample Data
+                form.form-horizontal(id='q11' action='/question/q11')
+                  .form-label-group
+                    label(for='q11answer') 
+                      h4 Answer
+                    textarea.form-control(name='q11answer' type='text' required='')
+                  br
+                  .form-label-group
+                    label(for='Token') 
+                      h4 Secret Key
+                    input.form-control(name='q11token' type='text' placeholder='Paste your team\'s secret key here' required='')
+                  br
+                  button.btn.btn-primary(name='q11submit' type='submit') Submit
                   br
                   .message.h5
                   

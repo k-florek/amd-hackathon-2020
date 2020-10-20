@@ -47,6 +47,10 @@ let ScoreSchema = new Schema({
   q10Points: {type: Number, default:0},
   q10Answer: {type:String, default:null},
 
+  q11CompleteTime: {type: Number, default:0},
+  q11Points: {type: Number, default:0},
+  q11Answer: {type:String, default:null},
+
 });
 
 module.exports = mongoose.model('Score',ScoreSchema);
