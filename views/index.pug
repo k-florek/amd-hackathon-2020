@@ -25,11 +25,21 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
       | Menu 
       i.fas.fa-bars
     #navbarResponsive.collapse.navbar-collapse
-      if registration_open
         ul.navbar-nav.ml-auto
-          li.nav-item.mx-0.mx-lg-1
-            .mx-auto(data-toggle='modal' data-target='#signup') 
-              a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#') Sign Up
+          li.nav-item.dropdown.mx-0.mx-lg-1
+              .mx-auto
+                a.dropdown-toggle.nav-link.py-3.px-0.px-lg-3.rounded(href='#' data-toggle="dropdown" id="resourceMenu" aria-haspopup="true" aria-expanded="false") Resources
+                .dropdown-menu(aria-labelledby="resourceMenu")
+                  a.dropdown-item(href="https://blast.ncbi.nlm.nih.gov/Blast.cgi") NCBI BLAST
+                  a.dropdown-item(href="https://clades.nextstrain.org/") Nextclade
+                  a.dropdown-item(href="https://usegalaxy.org/") Galaxy
+                  a.dropdown-item(href="https://www.programiz.com/python-programming/online-compiler/") Online Python Compiler
+                  a.dropdown-item(href="https://microbetrace.cdc.gov/MicrobeTrace/") Microbe Trace
+                  a.dropdown-item(href="https://amdvirtualhub-dev.cdc.gov/jupyter") Jupyter Hub 
+          if registration_open
+            li.nav-item.mx-0.mx-lg-1
+              .mx-auto(data-toggle='modal' data-target='#signup') 
+                a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#') Sign Up
 // Masthead
 header.masthead.bg-primary.text-white.text-center
   .container.d-flex.align-items-center.flex-column
@@ -698,9 +708,6 @@ if event_started
                 // Question - Text
                 p.mb-5
                   | !{questions.q11}
-                h4 Data
-                p
-                  a(href='assets/data/q11.csv') Sample Data
                 form.form-horizontal(id='q11' action='/question/q11')
                   .form-label-group
                     label(for='q11answer') 
