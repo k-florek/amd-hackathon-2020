@@ -3,6 +3,20 @@ const Scores = require('../models/score.model');
 const crypto = require('crypto');
 const axios = require('axios');
 const nodemailer = require("nodemailer");
+const handlebars = require("handlebars");
+const fs = require("fs");
+
+let readEmailHTMLFile = function(path,callback){
+  fs.readFile(path, {encoding: 'utf-8'}, function (err, html) {
+        if (err) {
+            throw err;
+            callback(err);
+        }
+        else {
+            callback(null, html);
+        }
+    });
+};
 
 async function checkReCaptcha(ctoken) {
   return axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.CAPTCHA_SECRET}&response=${ctoken}`, {})
@@ -30,14 +44,31 @@ async function sendMail(address,token,teamName){
     },
   });
 
-  let info = await transporter.sendMail({
-    from: '"AMD Binfo Hunt" <binfohunt2020@gmail.com>', // sender address
-    to: address, // list of receivers
-    subject: "AMD Binfo Scavenger Hunt Welcome", // Subject line
-    text: `Welcome ${teamName}, thanks for signing up!\n Your token is ${token} , use this for answering questions!`, // plain text body
-    //html: "<b>Hello world?</b>", // html body
+  readEmailHTMLFile(__dirname + "/../views/public/assets/email/signup_email.html",function(err,html){
+    if(err){
+      console.log(err);
+    }
+    let template = handlebars.compile(html)
+    let replacements = {
+      teamName:teamName,
+      token:token
+    }
+    let htmlToSend = template(replacements);
+    let messageOptions = {
+      from: '"AMD Binfo Hunt" <binfohunt2020@gmail.com>', // sender address
+      to: address, // list of receivers
+      subject: "AMD Binfo Scavenger Hunt Welcome", // Subject line
+      text: `WELCOME TEAM ${teamName}\n AMD Virtual 2020\n Bioinformatics Scavenger Hunt\n\n\n Here is your secret key\n\n This key is required to answer each question.\n Copy and paste the key into the Secret Key box when submitting an answer.\n Do not lose or give away your teams secret key!\n\n\n Your key is ${token}`, // plain text body
+      html: htmlToSend, // html body
+    }
+
+    transporter.sendMail(messageOptions,function(err,response){
+      if(err){
+        console.log(err);
+      }
+      console.log("Message sent: %s",response);
+    });
   });
-  console.log("Message sent: %s",info.messageId);
 }
 
 exports.signup = function (req,res) {
