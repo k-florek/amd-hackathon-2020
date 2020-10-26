@@ -38,10 +38,14 @@ async function checkReCaptcha(ctoken) {
 async function sendMail(address,token,teamName){
   let transporter = nodemailer.createTransport({
     service: 'gmail',
+    secure:false,
     auth: {
       user: process.env.emailUserName,
       pass: process.env.emailPassword,
     },
+    tls: {
+      rejectUnauthorized: false
+    }
   });
 
   readEmailHTMLFile(__dirname + "/../views/public/assets/email/signup_email.html",function(err,html){
