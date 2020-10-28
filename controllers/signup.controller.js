@@ -7,6 +7,8 @@ const aws = require("aws-sdk");
 const handlebars = require("handlebars");
 const fs = require("fs");
 
+aws.config.update({region:'us-east-1'});
+
 let readEmailHTMLFile = function(path,callback){
   fs.readFile(path, {encoding: 'utf-8'}, function (err, html) {
         if (err) {
