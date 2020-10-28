@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/k-florek/amd-hackathon#readme",
   "dependencies": {
+    "aws-sdk": "^2.781.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",

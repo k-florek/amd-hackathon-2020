@@ -3,6 +3,7 @@ const Scores = require('../models/score.model');
 const crypto = require('crypto');
 const axios = require('axios');
 const nodemailer = require("nodemailer");
+const aws = require("aws-sdk");
 const handlebars = require("handlebars");
 const fs = require("fs");
 
@@ -37,15 +38,9 @@ async function checkReCaptcha(ctoken) {
 
 async function sendMail(address,token,teamName){
   let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    secure:false,
-    auth: {
-      user: process.env.emailUserName,
-      pass: process.env.emailPassword,
-    },
-    tls: {
-      rejectUnauthorized: false
-    }
+    SES: new aws.SES({
+      apiVersion: '2010-12-01'
+    })
   });
 
   readEmailHTMLFile(__dirname + "/../views/public/assets/email/signup_email.html",function(err,html){
@@ -59,7 +54,7 @@ async function sendMail(address,token,teamName){
     }
     let htmlToSend = template(replacements);
     let messageOptions = {
-      from: '"AMD Binfo Hunt" <binfohunt2020@gmail.com>', // sender address
+      from: process.env.fromEmail, // sender address
       to: address, // list of receivers
       subject: "AMD Binfo Scavenger Hunt Welcome", // Subject line
       text: `WELCOME TEAM ${teamName}\n AMD Virtual 2020\n Bioinformatics Scavenger Hunt\n\n\n Here is your secret key\n\n This key is required to answer each question.\n Copy and paste the key into the Secret Key box when submitting an answer.\n Do not lose or give away your teams secret key!\n\n\n Your key is ${token}`, // plain text body
