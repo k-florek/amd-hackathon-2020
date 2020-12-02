@@ -39,4 +39,4 @@ services:
       - MONGO=mongodb://admin:adminpass1234@amd-hack-mongo:27017/amd-hackathon?authSource=admin
       - CAPTCHA_SECRET=
       - CAPTCHA_SITE=
-      - fromEmail=
+      - fromEmail= #signup email uses AWS SES
