@@ -25,7 +25,7 @@ services:
     depends_on:
       - mongodb
     environment:
-      - NODE_TLS_REJECT_UNAUTHORIZED=0 #work around for CDC firewall
+      #- NODE_TLS_REJECT_UNAUTHORIZED=0 #work around for CDC firewall
       - ENV=dev
       #date/times are UTC
       - REG_START=11/02/2020 17:00
