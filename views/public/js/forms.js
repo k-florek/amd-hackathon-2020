@@ -1,5 +1,5 @@
-function formSubmit(ctoken,oform) {
-  var dataString = $(oform).serialize() + "&ctoken="+ctoken; // to get the form data
+function formSubmit(oform) {
+  var dataString = $(oform).serialize(); // to get the form data
   var url = $(oform).attr('action');
   $.ajax({
     type: "POST",

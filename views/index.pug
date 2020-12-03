@@ -14,8 +14,6 @@ head
   link(href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css')
   // Core theme CSS (includes Bootstrap)
   link(href='css/styles.css' rel='stylesheet')
-  // CAPTCHA
-  script(src="https://www.google.com/recaptcha/api.js?render="+siteKey)
 
 // Navigation
 nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
@@ -36,10 +34,6 @@ nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
                   a.dropdown-item(href="https://www.programiz.com/python-programming/online-compiler/") Online Python Compiler
                   a.dropdown-item(href="https://microbetrace.cdc.gov/MicrobeTrace/") Microbe Trace
                   a.dropdown-item(href="https://amdvirtualhub-dev.cdc.gov/jupyter") Jupyter Hub 
-          if registration_open
-            li.nav-item.mx-0.mx-lg-1
-              .mx-auto(data-toggle='modal' data-target='#signup') 
-                a.nav-link.py-3.px-0.px-lg-3.rounded.js-scroll-trigger(href='#') Sign Up
 // Masthead
 header.masthead.bg-primary.text-white.text-center
   .container.d-flex.align-items-center.flex-column
@@ -56,128 +50,97 @@ header.masthead.bg-primary.text-white.text-center
     // Masthead Subheading
     p.masthead-subheading.font-weight-light.mb-0 Answer Questions - Get Points - Win Prizes
 // Question Section
-if event_ended === false
-  section#portfolio.page-section.portfolio
-    .container
-      // Question Section Heading
-      h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Questions
-      // Icon Divider
-      .divider-custom
-        .divider-custom-line
-        .divider-custom-icon
-          i.fas.fa-dna
-        .divider-custom-line
-      // Questions Grid Items
-      if event_started
-        if qset >= 1
-          .row
-            // Questions Item 1
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal1')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/1.png' alt='')
-            // Questions Item 2
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal2')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/2.png' alt='')
-            // Questions Item 3
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal3')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/3.png' alt='')
-        if qset >= 2
-          .row
-            // Questions Item 4
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal4')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/4.png' alt='')
-            // Questions Item 5
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal5')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/5.png' alt='')
-            // Questions Item 6
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal6')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/6.png' alt='')
-        if qset >= 3
-          .row
-            // Questions Item 7
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal7')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/7.png' alt='')
-            // Questions Item 8
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal8')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/8.jpg' alt='')
-            // Questions Item 9
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal9')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/9.png' alt='')
-        if qset >= 4
-          .row
-            // Questions Item 10
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal10')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/10.jpg' alt='')
-            // Questions Item 11
-            .col-md-6.col-lg-4.mb-5
-              .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal11')
-                .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                  .portfolio-item-caption-content.text-center.text-white
-                    i.fas.fa-plus.fa-3x
-                img.img-fluid(src='assets/img/questions/11.jpg' alt='')
-else
-  section#portfolio.page-section.portfolio
-    .container
-      // Question Section Heading
-      h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Event Closed 
-      // Icon Divider
-      .divider-custom
-        .divider-custom-line
-        .divider-custom-icon
-          i.fas.fa-dna
-        .divider-custom-line
-      h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Thank You For Competing
-section#portfolio.page-section.portfolio.bg-primary
-  .container.d-flex.align-items-center.flex-column
-    // Chat Section Heading
-    h2.page-section-heading.text-center.text-uppercase.text-white.mb-0 Chat
+section#portfolio.page-section.portfolio
+  .container
+    // Question Section Heading
+    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Questions
     // Icon Divider
-    .divider-custom.divider-light
+    .divider-custom
       .divider-custom-line
       .divider-custom-icon
         i.fas.fa-dna
       .divider-custom-line
-    // Embedded Gitter Chat
-    iframe(src='https://gitter.im/AMDVirtual2020/community/~embed')
+    .row
+      // Questions Item 1
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal1')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/1.png' alt='')
+      // Questions Item 2
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal2')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/2.png' alt='')
+      // Questions Item 3
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal3')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/3.png' alt='')
+    .row
+      // Questions Item 4
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal4')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/4.png' alt='')
+      // Questions Item 5
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal5')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/5.png' alt='')
+      // Questions Item 6
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal6')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/6.png' alt='')
+    .row
+      // Questions Item 7
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal7')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/7.png' alt='')
+      // Questions Item 8
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal8')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/8.jpg' alt='')
+      // Questions Item 9
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal9')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/9.png' alt='')
+    .row
+      // Questions Item 10
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal10')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/10.jpg' alt='')
+      // Questions Item 11
+      .col-md-6.col-lg-4.mb-5
+        .portfolio-item.mx-auto(data-toggle='modal' data-target='#portfolioModal11')
+          .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+            .portfolio-item-caption-content.text-center.text-white
+              i.fas.fa-plus.fa-3x
+          img.img-fluid(src='assets/img/questions/11.jpg' alt='')
 // Footer
 footer.footer.text-center
   .container
@@ -213,515 +176,409 @@ footer.footer.text-center
       // Footer About Text
       .col-lg-4
         h4.text-uppercase.mb-4 
-          a(href=`mailto:binfohunt2020@gmail.com` style="color:white") Issues
+          a(href=`` style="color:white") Issues
 .copyright.py-4.text-center.text-white
   .container
-    small Copyright &copy; AMD Hackathon 2020
+    small 
+      p Copyright &copy; AMD Hackathon 2020 
+      a(href="https://github.com/k-florek/amd-hackathon-2020" style="color:white") Built by Kelsey Florek
 // Scroll to Top Button (Only visible on small and extra-small screen sizes)
 .scroll-to-top.d-lg-none.position-fixed
   a.js-scroll-trigger.d-block.text-center.text-white.rounded(href='#page-top')
     i.fa.fa-chevron-up
 
-// Sign up form
-if registration_open
-  #signup.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='signupLabel' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Sign Up - Title
-                h2#signupLabel.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Binfo Scavenger Hunt </br>Sign Up
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Signup Form
-                form.form-horizontal(id='signupForm' action='/signup')
-                  .form-label-group
-                    label(for='teamName')
-                      h4 Team Name
-                    input.form-control(name='teamName' type='text' placeholder='Team Name' required='' autofocus='')
-                  br
-                  .form-label-group
-                    label(for='contactEmail') 
-                      h4 Contact Email
-                    input.form-control(name='contactEmail' type='email' placeholder='Email address' required='')
-                  br
-                  .form-label-group
-                    label(for='teamMembers') 
-                      h4 Team Members
-                    ul
-                      //textarea.form-control(name='teamMembers' type='text' placeholder='Jane Smith\nJohn Smith' required='')
-                      li.list-group-item
-                        input.form-control(name='teamMemberOne' type='text' placeholder='First' required='')
-                      li.list-group-item
-                        input.form-control(name='teamMemberTwo' type='text' placeholder='Second')
-                      li.list-group-item
-                        input.form-control(name='teamMemberThree' type='text' placeholder='Third')
-                      li.list-group-item
-                        input.form-control(name='teamMemberFour' type='text' placeholder='Fourth')
-                      li.list-group-item
-                        input.form-control(name='teamMemberFive' type='text' placeholder='Fith')
-                  br
-                  button.btn.btn-primary(name='signupsubmit' type='submit') Submit
-                  br
-                  .message.h5
-
-// Questions
-if event_started
-  // Question 1
-  #portfolioModal1.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal1Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Question - Title
-                h2#portfolioModal1Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 1
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/1.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q01}
-                form.form-horizontal(id='q01' action='/question/q01')
-                  .form-label-group
-                    label(for='q01answer') 
-                      h4 Answer
-                    textarea.form-control(name='q01answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q01token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q01submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 2
-  #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal2Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Question - Title
-                h2#portfolioModal2Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 2
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/2.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q02}
-                h4 Data
-                p
-                  a(href='assets/data/q2.fasta') Fasta Sequence
-                form.form-horizontal(id='q02' action='/question/q02')
-                  .form-label-group
-                    label(for='q02answer') 
-                      h4 Answer
-                    textarea.form-control(name='q02answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q02token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q02submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 3
-  #portfolioModal3.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal3Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Question - Title
-                h2#portfolioModal3Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 3
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/3.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q03}
-                h4 Data
-                p
-                  a(href='assets/data/q3.csv') Testing Results
-                form.form-horizontal(id='q03' action='/question/q03')
-                  .form-label-group
-                    label(for='q03answer') 
-                      h4 Answer
-                    textarea.form-control(name='q03answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q03token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q03submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 4
-  #portfolioModal4.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal4Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Question - Title
-                h2#portfolioModal4Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 4
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/4.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q04}
-                h4 Data
-                p
-                  a(href='assets/data/q4.bam') First Run Dataset
-                form.form-horizontal(id='q04' action='/question/q04')
-                  .form-label-group
-                    label(for='q04answer') 
-                      h4 Answer
-                    textarea.form-control(name='q04answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q04token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q04submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 5
-  #portfolioModal5.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal5Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Question - Title
-                h2#portfolioModal5Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 5
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/5.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q05}
-                h4 Data
-                p
-                  a(href='assets/data/q5_contaminated_sample_R1.fastq.gz') Forward Reads <br>
-                  a(href='assets/data/q5_contaminated_sample_R2.fastq.gz') Reverse Reads
-                form.form-horizontal(id='q05' action='/question/q05')
-                  .form-label-group
-                    label(for='q05answer') 
-                      h4 Answer
-                    textarea.form-control(name='q05answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q05token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q05submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 6
-  #portfolioModal6.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal6Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Question - Title
-                h2#portfolioModal6Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 6
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/6.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q06}
-                h4 Data
-                p
-                  a(href='assets/data/q6.fasta') Sequences
-                form.form-horizontal(id='q06' action='/question/q06')
-                  .form-label-group
-                    label(for='q06answer') 
-                      h4 Answer
-                    textarea.form-control(name='q06answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q06token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q06submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 7
-  #portfolioModal7.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal7Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Question - Title
-                h2#portfolioModal7Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 7
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/7.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q07}
-                h4 Data
-                p
-                  a(href='assets/data/q7.fasta') Sequences
-                form.form-horizontal(id='q07' action='/question/q07')
-                  .form-label-group
-                    label(for='q07answer') 
-                      h4 Answer
-                    textarea.form-control(name='q07answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q07token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q07submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 8
-  #portfolioModal8.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal8Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-8
-                // Question - Title
-                h2#portfolioModal8Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 8
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/8.jpg' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q08}
-                h4 Data
-                p
-                  a(href='assets/data/q8.py') Python Script
-                form.form-horizontal(id='q08' action='/question/q08')
-                  .form-label-group
-                    label(for='q08answer') 
-                      h4 Answer
-                    textarea.form-control(name='q08answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q08token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q08submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 9
-  #portfolioModal9.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal9Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-9
-                // Question - Title
-                h2#portfolioModal9Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 9
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/9.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q09}
-                h4 Data
-                p
-                  a(href='assets/data/q9.fasta') Alignment
-                form.form-horizontal(id='q09' action='/question/q09')
-                  .form-label-group
-                    label(for='q09answer') 
-                      h4 Answer
-                    textarea.form-control(name='q09answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q09token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q09submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 10
-  #portfolioModal10.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal10Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-10
-                // Question - Title
-                h2#portfolioModal10Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 10
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/10.png' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q10}
-                h4 Data
-                p
-                  a(href='assets/data/q10.csv') Sample Data
-                form.form-horizontal(id='q10' action='/question/q10')
-                  .form-label-group
-                    label(for='q10answer') 
-                      h4 Answer
-                    textarea.form-control(name='q10answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q10token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q10submit' type='submit') Submit
-                  br
-                  .message.h5
-  // Question 11
-  #portfolioModal11.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal11Label' aria-hidden='true')
-    .modal-dialog.modal-xl(role='document')
-      .modal-content
-        button.close(type='button' data-dismiss='modal' aria-label='Close')
-          span(aria-hidden='true')
-            i.fas.fa-times
-        .modal-body.text-center
-          .container
-            .row.justify-content-center
-              .col-lg-11
-                // Question - Title
-                h2#portfolioModal11Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 11
-                // Icon Divider
-                .divider-custom
-                  .divider-custom-line
-                  .divider-custom-icon
-                    i.fas.fa-dna
-                  .divider-custom-line
-                // Question - Image
-                img.img-fluid.rounded.mb-5(src='assets/img/questions/11.jpg' alt='')
-                // Question - Text
-                p.mb-5
-                  | !{questions.q11}
-                form.form-horizontal(id='q11' action='/question/q11')
-                  .form-label-group
-                    label(for='q11answer') 
-                      h4 Answer
-                    textarea.form-control(name='q11answer' type='text' required='')
-                  br
-                  .form-label-group
-                    label(for='Token') 
-                      h4 Secret Key
-                    input.form-control(name='q11token' type='text' placeholder='Paste your team\'s secret key here' required='')
-                  br
-                  button.btn.btn-primary(name='q11submit' type='submit') Submit
-                  br
-                  .message.h5
+// Questions Section
+// Question 1
+#portfolioModal1.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal1Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              // Question - Title
+              h2#portfolioModal1Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 1
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/1.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q01}
+              form.form-horizontal(id='q01' action='/question/q01')
+                .form-label-group
+                  label(for='q01answer') 
+                    h4 Answer
+                  textarea.form-control(name='q01answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q01submit' type='submit') Submit
+                br
+                .message.h5
+// Question 2
+#portfolioModal2.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal2Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              // Question - Title
+              h2#portfolioModal2Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 2
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/2.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q02}
+              h4 Data
+              p
+                a(href='assets/data/q2.fasta') Fasta Sequence
+              form.form-horizontal(id='q02' action='/question/q02')
+                .form-label-group
+                  label(for='q02answer') 
+                    h4 Answer
+                  textarea.form-control(name='q02answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q02submit' type='submit') Submit
+                br
+                .message.h5
+// Question 3
+#portfolioModal3.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal3Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              // Question - Title
+              h2#portfolioModal3Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 3
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/3.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q03}
+              h4 Data
+              p
+                a(href='assets/data/q3.csv') Testing Results
+              form.form-horizontal(id='q03' action='/question/q03')
+                .form-label-group
+                  label(for='q03answer') 
+                    h4 Answer
+                  textarea.form-control(name='q03answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q03submit' type='submit') Submit
+                br
+                .message.h5
+// Question 4
+#portfolioModal4.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal4Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              // Question - Title
+              h2#portfolioModal4Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 4
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/4.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q04}
+              h4 Data
+              p
+                a(href='assets/data/q4.bam') First Run Dataset
+              form.form-horizontal(id='q04' action='/question/q04')
+                .form-label-group
+                  label(for='q04answer') 
+                    h4 Answer
+                  textarea.form-control(name='q04answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q04submit' type='submit') Submit
+                br
+                .message.h5
+// Question 5
+#portfolioModal5.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal5Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              // Question - Title
+              h2#portfolioModal5Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 5
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/5.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q05}
+              h4 Data
+              p
+                a(href='assets/data/q5_contaminated_sample_R1.fastq.gz') Forward Reads <br>
+                a(href='assets/data/q5_contaminated_sample_R2.fastq.gz') Reverse Reads
+              form.form-horizontal(id='q05' action='/question/q05')
+                .form-label-group
+                  label(for='q05answer') 
+                    h4 Answer
+                  textarea.form-control(name='q05answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q05submit' type='submit') Submit
+                br
+                .message.h5
+// Question 6
+#portfolioModal6.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal6Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              // Question - Title
+              h2#portfolioModal6Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 6
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/6.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q06}
+              h4 Data
+              p
+                a(href='assets/data/q6.fasta') Sequences
+              form.form-horizontal(id='q06' action='/question/q06')
+                .form-label-group
+                  label(for='q06answer') 
+                    h4 Answer
+                  textarea.form-control(name='q06answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q06submit' type='submit') Submit
+                br
+                .message.h5
+// Question 7
+#portfolioModal7.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal7Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              // Question - Title
+              h2#portfolioModal7Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 7
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/7.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q07}
+              h4 Data
+              p
+                a(href='assets/data/q7.fasta') Sequences
+              form.form-horizontal(id='q07' action='/question/q07')
+                .form-label-group
+                  label(for='q07answer') 
+                    h4 Answer
+                  textarea.form-control(name='q07answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q07submit' type='submit') Submit
+                br
+                .message.h5
+// Question 8
+#portfolioModal8.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal8Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              // Question - Title
+              h2#portfolioModal8Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 8
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/8.jpg' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q08}
+              h4 Data
+              p
+                a(href='assets/data/q8.py') Python Script
+              form.form-horizontal(id='q08' action='/question/q08')
+                .form-label-group
+                  label(for='q08answer') 
+                    h4 Answer
+                  textarea.form-control(name='q08answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q08submit' type='submit') Submit
+                br
+                .message.h5
+// Question 9
+#portfolioModal9.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal9Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-9
+              // Question - Title
+              h2#portfolioModal9Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 9
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/9.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q09}
+              h4 Data
+              p
+                a(href='assets/data/q9.fasta') Alignment
+              form.form-horizontal(id='q09' action='/question/q09')
+                .form-label-group
+                  label(for='q09answer') 
+                    h4 Answer
+                  textarea.form-control(name='q09answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q09submit' type='submit') Submit
+                br
+                .message.h5
+// Question 10
+#portfolioModal10.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal10Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-10
+              // Question - Title
+              h2#portfolioModal10Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 10
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/10.png' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q10}
+              h4 Data
+              p
+                a(href='assets/data/q10.csv') Sample Data
+              form.form-horizontal(id='q10' action='/question/q10')
+                .form-label-group
+                  label(for='q10answer') 
+                    h4 Answer
+                  textarea.form-control(name='q10answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q10submit' type='submit') Submit
+                br
+                .message.h5
+// Question 11
+#portfolioModal11.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='portfolioModal11Label' aria-hidden='true')
+  .modal-dialog.modal-xl(role='document')
+    .modal-content
+      button.close(type='button' data-dismiss='modal' aria-label='Close')
+        span(aria-hidden='true')
+          i.fas.fa-times
+      .modal-body.text-center
+        .container
+          .row.justify-content-center
+            .col-lg-11
+              // Question - Title
+              h2#portfolioModal11Label.portfolio-modal-title.text-secondary.text-uppercase.mb-0 Question 11
+              // Icon Divider
+              .divider-custom
+                .divider-custom-line
+                .divider-custom-icon
+                  i.fas.fa-dna
+                .divider-custom-line
+              // Question - Image
+              img.img-fluid.rounded.mb-5(src='assets/img/questions/11.jpg' alt='')
+              // Question - Text
+              p.mb-5
+                | !{questions.q11}
+              form.form-horizontal(id='q11' action='/question/q11')
+                .form-label-group
+                  label(for='q11answer') 
+                    h4 Answer
+                  textarea.form-control(name='q11answer' type='text' required='')
+                br
+                button.btn.btn-primary(name='q11submit' type='submit') Submit
+                br
+                .message.h5
                   
 // Bootstrap core JS
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
@@ -733,11 +590,7 @@ script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.ea
 //forms script
 script(src='js/forms.js')
 script.
-  grecaptcha.ready(function() {
-    $(document).on('submit','form',function(event){
-      event.preventDefault(); // to prevent default page reloading
-      var $form = $(this);
-      grecaptcha.execute('#{siteKey}', {action: 'submit'}).then(token => formSubmit(token,$form));
-    });
-    
+  $(document).on('submit','form',function(event){
+    event.preventDefault(); // to prevent default page reloading
+    formSubmit($(this));
   });

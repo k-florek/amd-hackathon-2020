@@ -1,42 +1,13 @@
 version: '3'
 services:
-  mongodb:
-    image: 'mongo'
-    container_name: 'amd-hack-mongo'
-    environment:
-      - MONGO_INITDB_DATABASE=amd-hack
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=adminpass1234
-    volumes:
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - ./mongo-data:/data/db
-    ports:
-      - '27017-27019:27017-27019'
-
   web:
     build: .
     command: npm run start
-    container_name: 'amd-hack-web'
+    container_name: 'amd-hunt-web'
     volumes:
       - ./:/usr/app
       - /usr/app/node_modules
     ports:
       - "8000:8000"
-    depends_on:
-      - mongodb
     environment:
-      #- NODE_TLS_REJECT_UNAUTHORIZED=0 #work around for CDC firewall
-      - ENV=dev
-      #date/times are UTC
-      - REG_START=11/02/2020 17:00
-      - START_TIME=11/16/2020 17:00
-      - QSET1=11/16/2020 17:00 #should be set to the same as START_TIME
-      - QSET2=11/17/2020 17:00
-      - QSET3=11/18/2020 17:00
-      - QSET4=11/19/2020 17:00
-      - END_TIME=11/20/2020 17:00
       - PORT=8000
-      - MONGO=mongodb://admin:adminpass1234@amd-hack-mongo:27017/amd-hackathon?authSource=admin
-      - CAPTCHA_SECRET=
-      - CAPTCHA_SITE=
-      - fromEmail= #signup email uses AWS SES
